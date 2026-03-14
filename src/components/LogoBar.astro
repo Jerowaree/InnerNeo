@@ -1,0 +1,54 @@
+---
+const partners = [
+  {
+    name: "AWS",
+    src: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg",
+  },
+  {
+    name: "Vercel",
+    src: "https://www.vectorlogo.zone/logos/vercel/vercel-ar21.svg",
+  },
+  {
+    name: "Android",
+    src: "https://www.vectorlogo.zone/logos/android/android-ar21.svg",
+  },
+  {
+    name: "Microsoft",
+    src: "https://www.vectorlogo.zone/logos/microsoft/microsoft-ar21.svg",
+  },
+  {
+    name: "Google Cloud",
+    src: "https://www.vectorlogo.zone/logos/google_cloud/google_cloud-ar21.svg",
+  },
+];
+---
+
+<div class="py-16 bg-[#F8FAFF] border-t border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div
+      class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.4em] mb-12"
+    >
+      Tecnologías que Potencian tus Soluciones
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-16 md:gap-24">
+      {
+        partners.map((partner) => (
+          <div class="group relative">
+            <img
+              src={partner.src}
+              alt={partner.name}
+              class="h-14 md:h-20 w-auto opacity-40 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500 transition-bezier"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .transition-bezier {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>

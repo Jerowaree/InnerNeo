@@ -1,0 +1,363 @@
+---
+const solutions = [
+  {
+    name: "Apps Móviles",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400",
+    desc: "Desarrollo nativo e híbrido para iOS y Android.",
+  },
+  {
+    name: "E-commerce",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=400",
+    desc: "Tiendas online de alto rendimiento y conversión.",
+  },
+  {
+    name: "Cloud Engineering",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=400",
+    desc: "Infraestructura escalable y segura en la nube.",
+  },
+  {
+    name: "Inteligencia Artificial",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400",
+    desc: "Modelos predictivos y automatización inteligente.",
+  },
+];
+
+const projects = [
+  {
+    name: "NextFit",
+    href: "https://nextfitoficial.com",
+    external: true,
+    desc: "Plataforma integral para la gestión de centros deportivos.",
+  },
+  {
+    name: "Master Manager",
+    href: "#",
+    external: false,
+    comingSoon: true,
+    desc: "Plataforma web para gestión y administración de inventarios y caja.",
+  },
+];
+
+const services = [
+  {
+    name: "Software Factory",
+    href: "#services",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=400",
+    desc: "Células ágiles de desarrollo para tus proyectos.",
+  },
+  {
+    name: "UX/UI Design",
+    href: "#services",
+    image:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=400",
+    desc: "Experiencias de usuario memorables y funcionales.",
+  },
+  {
+    name: "Content Creation",
+    href: "#services",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400",
+    desc: "Generación de contenido estratégico para marcas IT.",
+  },
+  {
+    name: "Mantenimiento & Soporte",
+    href: "#services",
+    image:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=400",
+    desc: "Garantía de estabilidad y mejora continua.",
+  },
+];
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100 h-[var(--header-height)] flex items-center shadow-sm"
+>
+  <!-- Scroll Progress Indicator -->
+  <div
+    id="scroll-progress"
+    class="absolute bottom-[-1px] left-0 h-[3.5px] bg-[#612DAA] w-0 transition-all duration-150 ease-out z-[110]"
+    style="box-shadow: 0 0 10px rgba(97, 45, 170, 0.4);"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group shrink-0">    
+      <span
+        class="font-mont text-2xl font-black text-[#0F0F1A] tracking-tighter"
+        >INNER<span class="text-[#612DAA]">NEO</span></span
+      >
+    </a>
+
+    <!-- Nav Content - Pushed to the right -->
+    <div class="hidden lg:flex items-center gap-10">
+      <div class="flex items-center gap-8">
+        <!-- Soluciones Dropdown (Contiene NextFit) -->
+        <div class="relative group py-4">
+          <button
+            class="flex items-center gap-1 text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-colors"
+          >
+            Soluciones
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="group-hover:rotate-180 transition-transform duration-300"
+              ><path d="m6 9 6 6 6-6"></path></svg
+            >
+          </button>
+
+          <div
+            class="absolute top-[100%] left-[-200px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-[110]"
+          >
+            <div
+              class="w-[850px] bg-white border border-gray-100 rounded-[32px] p-6 shadow-2xl overflow-hidden"
+            >
+              <div class="flex flex-row gap-4">
+                {
+                  solutions.map((item) => (
+                    <a
+                      href={item.href}
+                      class="flex-1 flex flex-col overflow-hidden transition-all group/item"
+                    >
+                      <div class="relative h-64 overflow-hidden border border-gray-100 shadow-sm">
+                        <!-- Top Purple Line -->
+                        <div class="absolute top-0 left-0 right-0 h-[2.5px] bg-[#612DAA] z-20"></div>
+                        
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          class="w-full h-full object-cover"
+                        />
+                        
+                        <!-- Title Container (Square) -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-white py-3 px-4 z-10 flex items-center min-h-[50px]">
+                          <!-- Left Animated Line -->
+                          <div class="absolute left-0 top-0 bottom-0 w-[4px] bg-[#612DAA] scale-y-0 group-hover/item:scale-y-100 transition-transform origin-top duration-500"></div>
+                          
+                          <span class="text-[11px] font-black text-[#0F0F1A] uppercase tracking-wider group-hover/item:text-[#612DAA] transition-colors duration-300">
+                            {item.name}
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyectos Dropdown -->
+        <div class="relative group py-4">
+          <button
+            class="flex items-center gap-1 text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-colors"
+          >
+            Proyectos
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="group-hover:rotate-180 transition-transform duration-300"
+              ><path d="m6 9 6 6 6-6"></path></svg
+            >
+          </button>
+
+          <div
+            class="absolute top-[100%] left-[-20px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-[110]"
+          >
+            <div
+              class="w-80 bg-white border border-gray-100 rounded-3xl p-5 shadow-2xl overflow-hidden"
+            >
+              <span
+                class="text-[10px] uppercase tracking-widest font-black text-[#612DAA] px-4 mb-2 block"
+                >Casos de éxito</span
+              >
+              <div class="flex flex-col gap-2">
+                {
+                  projects.map((item) => (
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      class={`px-4 py-3 rounded-2xl hover:bg-[#F8FAFF] transition-all group/proj flex flex-col ${item.comingSoon ? 'pointer-events-none opacity-80' : ''}`}
+                    >
+                      <div class="text-sm font-bold text-[#0F0F1A] group-hover/proj:text-[#612DAA] mb-1 flex items-center justify-between">
+                        <span class="flex items-center gap-2">
+                          {item.name}
+                          {item.comingSoon && (
+                            <span class="text-[9px] font-black bg-purple-100 text-[#612DAA] px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                              Próximamente
+                            </span>
+                          )}
+                        </span>
+                        {item.external && (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="opacity-0 group-hover/proj:opacity-40 transition-opacity"
+                          >
+                            <path d="M15 3h6v6" />
+                            <path d="M10 14 21 3" />
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                          </svg>
+                        )}
+                      </div>
+                      <div class="text-[11px] text-[#64748B] leading-snug">
+                        {item.desc}
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proceso Link -->
+        <a
+          href="#process"
+          class="text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-all relative group"
+        >
+          Proceso
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#612DAA] transition-all group-hover:w-full"
+          ></span>
+        </a>
+
+        <!-- Servicios Dropdown -->
+        <div class="relative group py-4">
+          <button
+            class="flex items-center gap-1 text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-colors"
+          >
+            Servicios
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="group-hover:rotate-180 transition-transform duration-300"
+              ><path d="m6 9 6 6 6-6"></path></svg
+            >
+          </button>
+
+          <div
+            class="absolute top-[100%] right-[-200px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-[110]"
+          >
+            <div
+              class="w-[850px] bg-white border border-gray-100 rounded-[32px] p-6 shadow-2xl overflow-hidden"
+            >
+              <div class="flex flex-row gap-4">
+                {
+                  services.map((item) => (
+                    <a
+                      href={item.href}
+                      class="flex-1 flex flex-col overflow-hidden transition-all group/item"
+                    >
+                      <div class="relative h-64 overflow-hidden border border-gray-100 shadow-sm">
+                        <!-- Top Purple Line -->
+                        <div class="absolute top-0 left-0 right-0 h-[2.5px] bg-[#612DAA] z-20"></div>
+                        
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          class="w-full h-full object-cover"
+                        />
+                        
+                        <!-- Title Container (Square) -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-white py-3 px-4 z-10 flex items-center min-h-[50px]">
+                          <!-- Left Animated Line -->
+                          <div class="absolute left-0 top-0 bottom-0 w-[4px] bg-[#612DAA] scale-y-0 group-hover/item:scale-y-100 transition-transform origin-top duration-500"></div>
+                          
+                          <span class="text-[11px] font-black text-[#0F0F1A] uppercase tracking-wider group-hover/item:text-[#612DAA] transition-colors duration-300">
+                            {item.name}
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto -->
+      <div class="bg-transparent pl-4 border-l border-gray-100">
+        <a
+          href="#contact"
+          class="inline-flex items-center px-6 py-3 bg-[#612DAA] text-white text-base font-semibold rounded-s-sm hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all active:scale-95 uppercase tracking-wide"
+        >
+          Contáctanos
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="lg:hidden p-2 text-[#0F0F1A] bg-gray-50 rounded-lg">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><line x1="4" x2="20" y1="12" y2="12"></line><line
+          x1="4"
+          x2="20"
+          y1="6"
+          y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg
+      >
+    </button>
+  </div>
+</nav>
+
+<script>
+  const progressBar = document.getElementById("scroll-progress");
+
+  window.addEventListener("scroll", () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+
+    if (progressBar) {
+      progressBar.style.width = scrolled + "%";
+    }
+  });
+</script>

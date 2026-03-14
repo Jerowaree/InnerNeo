@@ -1,0 +1,66 @@
+@import url(https://db.onlinewebfonts.com/c/6cce6b8c74a8ac84c45963dbac1e025a?family=Mont+Regular);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFF;
+  --accent-primary: #612DAA; /* Deep Purple */
+  --accent-secondary: #A78BFA; /* Lavender */
+  --accent-vibrant: #8B5CF6; 
+  --text-main: #0F0F1A;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --border-subtle: rgba(124, 58, 237, 0.1);
+  --header-height: 80px;
+}
+
+@layer base {
+  html, body {
+    @apply m-0 w-full h-full bg-white text-[hsl(240,27%,8%)] antialiased selection:bg-purple-500/10 selection:text-purple-900;
+    font-family: 'Kumbh Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mont tracking-tight font-bold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-7 py-3.5 rounded-xl bg-[#612DAA] text-white font-bold transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 active:scale-95 flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply px-7 py-3.5 rounded-xl border border-[#612DAA]/20 text-[#612DAA] font-bold transition-all duration-300 hover:bg-[#612DAA]/5 active:scale-95 flex items-center gap-2;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 px-6 max-w-7xl mx-auto;
+  }
+
+  .card-premium {
+    @apply bg-white p-8 rounded-3xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(124,58,237,0.1)] hover:-translate-y-2;
+  }
+}
+
+@layer utilities {
+  .font-syne { font-family: 'Syne', system-ui, sans-serif; }
+  .font-mono-dm { font-family: 'DM Mono', monospace; }
+  
+  .bg-purple-gradient {
+    background: linear-gradient(135deg, #612DAA 0%, #A78BFA 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#612DAA] to-[#A78BFA] inline-block;
+  }
+}
+
+/* Custom animations */
+.transition-premium {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+

@@ -1,0 +1,217 @@
+---
+
+---
+
+<section
+  id="about"
+  class="bg-[#1E1E1E] py-24 md:py-32 overflow-hidden relative w-full"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10"
+  >
+    <!-- Image Column -->
+    <div class="relative group reveal">
+      <div
+        class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
+      >
+        <img
+          src="/images/about.jpg"
+          alt="Equipo Colaborativo"
+          class="w-full h-auto grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
+        />
+        <!-- Play Button Overlay -->
+        <div
+          class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors"
+        >
+        </div>
+      </div>
+      <!-- Decorative Elements -->
+      <div
+        class="absolute -bottom-6 -left-6 w-32 h-32 bg-[#612DAA]/20 rounded-full blur-2xl animate-pulse"
+      >
+      </div>
+      <div
+        class="absolute -top-6 -right-6 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
+      >
+      </div>
+    </div>
+
+    <!-- Text Column -->
+    <div class="space-y-8 reveal delay-200">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-px bg-[#612DAA]"></div>
+          <span
+            class="text-[#612DAA] font-bold tracking-[0.2em] uppercase text-xs"
+            >Sobre Nosotros</span
+          >
+        </div>
+        <h2
+          class="text-4xl md:text-5xl font-mont font-bold text-white leading-tight"
+        >
+          Impulsamos tus ideas con una <br />
+          <span class="">solución eficaz</span>
+        </h2>
+      </div>
+
+      <p class="text-gray-300 text-lg leading-relaxed reveal delay-300">
+        En Innerneo Labs, combinamos una profunda experiencia técnica con un
+        enfoque centrado en las personas para crear software que realmente
+        marque la diferencia. Nuestro equipo está dedicado a la excelencia y la
+        innovación constante.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-6 items-center">
+        <ul class="space-y-5">
+          {
+            [
+              "Expertos en el Sector",
+              "Soluciones de Alta Calidad",
+              "Soporte Especializado",
+            ].map((item) => (
+              <li class="flex items-center gap-4 text-white/90 font-medium">
+                <div class="w-6 h-6 rounded-full bg-[#612DAA]/20 flex items-center justify-center text-[#612DAA] border border-[#612DAA]/30">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-10 pt-6">
+        <a
+          href="#projects"
+          class="group px-8 py-4 bg-white text-[#0F0F1A] font-bold rounded-sm hover:bg-[#612DAA] hover:text-white transition-all shadow-xl hover:shadow-[#612DAA]/30 active:scale-95 flex items-center gap-2"
+        >
+          Explorar Más
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="group-hover:translate-x-1 transition-transform"
+            ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </a>
+
+        <div
+          class="flex items-center gap-4 border-l border-white/10 pl-8 reveal delay-500"
+        >
+          <div class="flex flex-col justify-center">
+            <div
+              class="text-3xl font-mont font-black text-white flex items-center leading-none mb-1"
+            >
+              <span class="text-[#612DAA] mr-1">+</span><span
+                id="client-counter"
+                class="tabular-nums">0</span
+              >
+            </div>
+            <div
+              class="text-[10px] text-[#94A3B8] font-mont font-black uppercase tracking-[0.2em]"
+            >
+              Clientes Satisfechos
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Scroll reveal logic
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((el) => revealObserver.observe(el));
+
+    // Counter logic
+    const counter = document.getElementById("client-counter");
+    if (!counter) return;
+
+    const start = 0;
+    const end = 20;
+    const duration = 2000;
+
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          let startTimestamp = null;
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min(
+              (timestamp - startTimestamp) / duration,
+              1,
+            );
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+            counter.innerText = Math.floor(easeProgress * end).toString();
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              counter.innerText = end.toString();
+            }
+          };
+          window.requestAnimationFrame(step);
+          counterObserver.unobserve(counter);
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    counterObserver.observe(counter);
+  });
+</script>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .delay-200 {
+    transition-delay: 0.2s;
+  }
+  .delay-300 {
+    transition-delay: 0.3s;
+  }
+  .delay-500 {
+    transition-delay: 0.5s;
+  }
+</style>

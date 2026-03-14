@@ -1,0 +1,74 @@
+---
+const keywords = [
+  "Tecnología",
+  "Marketing Digital",
+  "Innovación",
+  "Inteligencia Artificial",
+  "Diseño UX/UI",
+  "Escalabilidad",
+  "Transformación Digital",
+  "Cloud Computing",
+  "Ciberseguridad",
+  "Arquitectura Web",
+  "Sistemas Empresariales",
+  "Desarrollo de Software",
+  "Software as a Service",
+];
+
+// Duplicate keywords to ensure smooth infinite scroll
+const doubleKeywords = [...keywords, ...keywords];
+---
+
+<div
+  class="relative w-full bg-[#612DAA] py-6 overflow-hidden border-y border-white/10 shadow-lg"
+>
+  {/* Gradientes para suavizar bordes */}
+  <div
+    class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#612DAA] to-transparent z-10"
+  >
+  </div>
+  <div
+    class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#612DAA] to-transparent z-10"
+  >
+  </div>
+
+  <div class="marquee-container flex items-center">
+    <div
+      class="marquee-content flex gap-12 items-center whitespace-nowrap animate-scroll"
+    >
+      {
+        doubleKeywords.map((word) => (
+          <div class="flex items-center gap-6">
+            <span class="text-white text-xl md:text-2xl font-black font-mont uppercase tracking-wider opacity-90 hover:opacity-100 transition-opacity">
+              {word}
+            </span>
+            <div class="w-3 h-3 rounded-full bg-white/30" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Move only half the width (since we duplicated) for seamless infinite loop */
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Optimize performance for translations */
+  .marquee-content {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+</style>

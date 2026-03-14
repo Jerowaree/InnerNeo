@@ -1,0 +1,128 @@
+---
+import TypewriterTitle from "./TypewriterTitle.client.tsx";
+
+const services = [
+  {
+    title: "Web design & development",
+    desc: "Soluciones WEB enfocadas en los resultados.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 8v4l3 3"/><path d="M7 10a5 5 0 0 1 5-5"/><path d="M17 14a5 5 0 0 1-5 5"/></svg>`,
+  },
+  {
+    title: "Graphic design and branding",
+    desc: "La calidad de diseño gráfico que tanto buscabas.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="m7 8 5 3 5-3"/></svg>`,
+  },
+  {
+    title: "Content creation",
+    desc: "Contenidos que realmente hacen la diferencia.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+  },
+  {
+    title: "Performance",
+    desc: "Estrategias digitales enfocadas en resultados.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>`,
+  },
+];
+---
+
+<section id="services" class="section-padding bg-white">
+  <div
+    class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20"
+  >
+    <div class="lg:max-w-[55%]">
+      <span
+        class="text-[#64748B] font-bold tracking-[0.2em] uppercase text-sm mb-6 block"
+      >
+        Servicios TI
+      </span>
+      <div class="relative">
+        <TypewriterTitle
+          client:load
+          text="Innovando sectores"
+          className="text-4xl md:text-7xl font-sans font-black text-[#0F0F1A] leading-[1.1] tracking-tight inline-block"
+        />
+        <div
+          class="hidden md:inline-block w-4 h-4 bg-[#612DAA] mb-1 ml-1 animate-pulse"
+        >
+        </div>
+        <br />
+        <TypewriterTitle
+          client:load
+          text="Lidera en digital."
+          delay={0.5}
+          className="text-4xl md:text-7xl font-sans font-black text-[#0F0F1A]/90 leading-[1.1] tracking-tight"
+        />
+      </div>
+    </div>
+
+    <div class="lg:max-w-[400px] flex flex-col gap-8 pt-4">
+      <p class="text-[#64748B] text-lg leading-relaxed font-medium">
+        Somos un estudio de ingeniería digital y diseño especializado en
+        desarrollo web, software a medida y experiencias de alto impacto
+        tecnológico.
+      </p>
+      <a
+        href="#contact"
+        class="inline-block px-8 py-4 bg-[#612DAA] text-white font-black text-center rounded-lg shadow-lg hover:shadow-purple-500/20 hover:scale-105 transition-all active:scale-95"
+      >
+        CONTÁCTANOS
+      </a>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 border-t border-gray-300">
+    {
+      services.map((service, index) => (
+        <div
+          class={`relative p-10 md:p-14 border-b lg:border-b-0 border-gray-300 group overflow-hidden transition-all duration-700 reveal ${index !== services.length - 1 ? "lg:border-r" : ""}`}
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          {/* Capa de fondo morado animada */}
+          <div class="absolute inset-0 bg-[#612DAA] translate-y-[-101%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+
+          <div class="relative z-10">
+            <div
+              class="mb-10 text-[#0F0F1A]/70 group-hover:text-white transition-colors duration-500"
+              set:html={service.icon}
+            />
+            <div class="space-y-6">
+              <h3 class="text-2xl font-bold text-[#0F0F1A] group-hover:text-white leading-tight transition-colors duration-500">
+                {service.title}
+              </h3>
+              <p class="text-[#64748B] group-hover:text-white/90 leading-relaxed transition-colors duration-500">
+                {service.desc}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  });
+</script>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

@@ -1,0 +1,246 @@
+---
+import { getCurrentYear } from '../lib/utils';
+---
+
+<footer class="bg-[#161617] pt-20 pb-10 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16">
+    <!-- Brand Section -->
+    <div class="space-y-8">
+      <div>
+        <div class="font-mont text-3xl font-black text-white tracking-tighter">
+          Innerneo Labs
+        </div>
+        <p class="text-gray-300 text-base mt-4 leading-relaxed max-w-sm">
+          Donde las ideas se convierten en sistemas.
+        </p>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="flex items-center gap-4">
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#612DAA] hover:border-[#612DAA] transition-all duration-300 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path
+              d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line
+              x1="17.5"
+              x2="17.51"
+              y1="6.5"
+              y2="6.5"></line></svg
+          >
+        </a>
+        <a
+          href="#"
+          class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#612DAA] hover:border-[#612DAA] transition-all duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M22 4s-1 2.17-2.41 3.06c1.06 4.1-1.37 8.33-5.39 10.13-4.02 1.8-8.8.55-11.2-3.06 0 0 2 0 3-1 0 0-2 0-3-2 0 0 2 0 3-1 0 0-2-1-3-3 0 0 2 0 3-.5C1 5.44 3 3 5 3s1 1 2 1c0 0 1-1 3-1s4 2 4 4c0 0 3 0 4-2Z"
+            ></path></svg
+          >
+        </a>
+        <a
+          href="#"
+          class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#612DAA] hover:border-[#612DAA] transition-all duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path><rect width="4" height="12" x="2" y="9"></rect><circle
+              cx="4"
+              cy="4"
+              r="2"></circle></svg
+          >
+        </a>
+      </div>
+    </div>
+
+    <!-- Links Section -->
+    <div>
+      <div class="inline-block relative mb-8">
+        <h4 class="text-white font-bold text-xl tracking-tight">
+          Enlaces Rápidos
+        </h4>
+        <div class="absolute -bottom-1 left-0 w-full h-[2px] bg-[#612DAA]">
+        </div>
+      </div>
+      <ul class="text-gray-300 text-base space-y-5">
+        <li>
+          <a
+            href="#about"
+            class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
+            ><span
+              class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
+              >&gt;</span
+            > Sobre Nosotros</a
+          >
+        </li>
+        <li>
+          <a
+            href="#services"
+            class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
+            ><span
+              class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
+              >&gt;</span
+            > Nuestros Servicios</a
+          >
+        </li>
+        <li>
+          <a
+            href="#process"
+            class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
+            ><span
+              class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
+              >&gt;</span
+            > Proceso de Trabajo</a
+          >
+        </li>
+        <li>
+          <a
+            href="#projects"
+            class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
+            ><span
+              class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
+              >&gt;</span
+            >Proyectos</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="flex flex-col">
+      <div class="inline-block relative mb-8 self-start">
+        <h4 class="text-white font-bold text-xl tracking-tight">Contáctanos</h4>
+        <div class="absolute -bottom-1 left-0 w-full h-[2px] bg-[#612DAA]">
+        </div>
+      </div>
+      <div class="space-y-5 mb-10">
+        <div class="flex items-center gap-5 group">
+          <div class="text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path></svg
+            >
+          </div>
+          <div>
+            <div
+              class="text-[12px] text-gray-500 font-semibold uppercase tracking-widest mb-1"
+            >
+              WhatsApp / Call
+            </div>
+            <a
+              href="tel:+51955730233"
+              class="text-white text-lg font-medium hover:text-[#612DAA] transition-colors tracking-tight"
+              >+51 955 730 233</a
+            >
+          </div>
+        </div>
+
+        <div class="flex items-center gap-5 group">
+          <div class="text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+            >
+          </div>
+          <div>
+            <div
+              class="text-[12px] text-gray-500 font-semibold uppercase tracking-widest mb-1"
+            >
+              Email Oficial
+            </div>
+            <a
+              href="mailto:innerneoficial@gmail.com"
+              class="text-white text-lg font-medium hover:text-[#612DAA] transition-colors tracking-tight"
+              >innerneoficial@gmail.com</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#612DAA] text-white font-bold rounded-s-sm overflow-hidden transition-all duration-300 w-fit"
+        onclick="window.dispatchEvent(new CustomEvent('open-project-modal'))"
+      >
+        <!-- Hover Fill Layer -->
+        <span
+          class="absolute inset-0 w-0 bg-white group-hover:w-full transition-all duration-500 ease-out z-0"
+        ></span>
+
+        <span
+          class="relative z-10 group-hover:text-black transition-colors duration-300"
+          >Obtén una cotización</span
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="relative z-10 group-hover:text-black group-hover:translate-x-1 transition-all duration-300"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-20 pt-10 border-t border-white/5 text-center px-6">
+    <p class="text-gray-500 text-sm font-medium tracking-wide">
+      © {getCurrentYear()} <span class="text-white font-bold">Innerneo Labs</span> — Todos los derechos
+      reservados. Diseñado con precisión para el futuro digital.
+    </p>
+  </div>
+</footer>
