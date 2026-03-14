@@ -8,7 +8,7 @@ import { getCurrentYear } from "../lib/utils";
     <div class="space-y-8">
       <div>
         <div class="font-mont text-3xl font-black text-white tracking-tighter">
-          Innerneo Labs
+          Inner<span class="text-[#612DAA]">neo</span> Labs
         </div>
         <p class="text-gray-300 text-base mt-4 leading-relaxed max-w-sm">
           Donde las ideas se convierten en sistemas.
@@ -207,9 +207,9 @@ import { getCurrentYear } from "../lib/utils";
         </div>
       </div>
 
-      <button
+      <a
+        href="/contacto"
         class="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#612DAA] text-white font-bold rounded-s-sm overflow-hidden transition-all duration-300 w-fit"
-        onclick="window.dispatchEvent(new CustomEvent('open-project-modal'))"
       >
         <!-- Hover Fill Layer -->
         <span
@@ -233,15 +233,15 @@ import { getCurrentYear } from "../lib/utils";
           class="relative z-10 group-hover:text-black group-hover:translate-x-1 transition-all duration-300"
           ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
         >
-      </button>
+      </a>
     </div>
   </div>
 
   <div class="mt-20 pt-10 border-t border-white/5 text-center px-6">
     <p class="text-gray-500 text-sm font-medium tracking-wide">
       © {getCurrentYear()}
-      <span class="text-white font-bold">Innerneo Labs</span> — Todos los derechos
-      reservados. Diseñando con precisión para el futuro digital.
+      <span>Innerneo Labs</span> — Todos los derechos reservados. Diseñando con precisión
+      para el futuro digital.
     </p>
   </div>
 </footer>
