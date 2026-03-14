@@ -327,7 +327,7 @@ const services = [
     </div>
 
     <!-- Mobile Menu Toggle Button -->
-    <button class="lg:hidden p-2 text-[#0F0F1A] bg-gray-50 rounded-lg">
+    <button id="mobile-menu-btn" class="lg:hidden p-2 text-[#0F0F1A] bg-gray-50 rounded-lg">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -338,13 +338,54 @@ const services = [
         stroke-width="2.5"
         stroke-linecap="round"
         stroke-linejoin="round"
+        class="menu-icon"
         ><line x1="4" x2="20" y1="12" y2="12"></line><line
           x1="4"
           x2="20"
           y1="6"
           y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg
       >
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        class="close-icon hidden"
+        ><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed top-[var(--header-height)] left-0 w-full h-[calc(100vh-var(--header-height))] bg-white z-[90] flex-col p-6 hidden overflow-y-auto">
+    <div class="flex flex-col gap-6 text-xl font-bold mt-4">
+      <div class="pb-4 border-b border-gray-100 flex flex-col gap-4">
+        <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">Soluciones</span>
+        {solutions.map((item) => (
+          <a href={item.href} class="text-[#0F0F1A] text-lg pl-2 hover:text-[#612DAA]">{item.name}</a>
+        ))}
+      </div>
+      <div class="pb-4 border-b border-gray-100 flex flex-col gap-4">
+        <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">Proyectos</span>
+        {projects.map((item) => (
+          <a href={item.href} class="text-[#0F0F1A] text-lg pl-2 hover:text-[#612DAA] flex items-center gap-2">
+            {item.name}
+            {item.comingSoon && (
+              <span class="text-[9px] font-black bg-purple-100 text-[#612DAA] px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                Próximamente
+              </span>
+            )}
+          </a>
+        ))}
+      </div>
+      <a href="/#process" class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">Proceso</a>
+      <a href="/#services" class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">Servicios</a>
+      <a href="/contacto" class="text-white bg-[#612DAA] py-4 px-6 rounded-xl text-center uppercase tracking-wider mt-4">Contáctanos</a>
+    </div>
   </div>
 </nav>
 
@@ -360,4 +401,42 @@ const services = [
       progressBar.style.width = scrolled + "%";
     }
   });
+
+  // Mobile Menu Logic
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+  const menuIcon = mobileMenuBtn?.querySelector(".menu-icon");
+  const closeIcon = mobileMenuBtn?.querySelector(".close-icon");
+
+  if (mobileMenuBtn && mobileMenuOverlay && menuIcon && closeIcon) {
+    mobileMenuBtn.addEventListener("click", () => {
+      const isHidden = mobileMenuOverlay.classList.contains("hidden");
+      
+      if (isHidden) {
+        mobileMenuOverlay.classList.remove("hidden");
+        mobileMenuOverlay.classList.add("flex");
+        document.body.style.overflow = "hidden"; // Prevent background scrolling
+        menuIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+      } else {
+        mobileMenuOverlay.classList.add("hidden");
+        mobileMenuOverlay.classList.remove("flex");
+        document.body.style.overflow = "";
+        menuIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      }
+    });
+
+    // Close menu when clicking on a link
+    const mobileLinks = mobileMenuOverlay.querySelectorAll("a");
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenuOverlay.classList.add("hidden");
+        mobileMenuOverlay.classList.remove("flex");
+        document.body.style.overflow = "";
+        menuIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      });
+    });
+  }
 </script>
