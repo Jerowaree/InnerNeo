@@ -18,6 +18,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+  }
   html, body {
     @apply m-0 w-full h-full bg-white text-[hsl(240,27%,8%)] antialiased selection:bg-purple-500/10 selection:text-purple-900;
     font-family: 'Kumbh Sans', system-ui, sans-serif;

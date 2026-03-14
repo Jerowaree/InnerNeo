@@ -7,8 +7,8 @@
   class="relative min-h-[90vh] flex items-center pt-[var(--header-height)] overflow-hidden group"
 >
   <!-- Dynamic Background with Curve -->
-  <div class="absolute inset-0 bg-[#0F0F1A] z-0">
-    <div class="absolute inset-0 bg-purple-gradient opacity-90"></div>
+  <div class="absolute inset-0 bg-[#07070F] z-0">
+    <div class="absolute inset-0 bg-purple-gradient opacity-70"></div>
 
     <!-- Mouse Follow Spotlight (Enhanced Visibility) -->
     <div
@@ -18,7 +18,6 @@
     >
     </div>
 
-
     <div class="absolute inset-0 overflow-hidden">
       <!-- Image Container with interactive scale -->
       <div
@@ -27,7 +26,7 @@
         <img
           src="/images/herosection.jpg"
           alt="IT Solution Team"
-          class="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-50 animate-ken-burns"
+          class="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-72 animate-ken-burns"
         />
       </div>
     </div>
@@ -38,11 +37,9 @@
     >
     </div>
 
-
-
     <!-- Plexus Network Layer (Restricted to purple area) -->
-    <div 
-      id="anime-bg" 
+    <div
+      id="anime-bg"
       class="absolute inset-y-0 left-0 w-full lg:w-[60%] z-[2] pointer-events-none opacity-60 overflow-hidden"
       style="mask-image: linear-gradient(to right, black 40%, transparent 90%); -webkit-mask-image: linear-gradient(to right, black 40%, transparent 90%);"
     >
@@ -59,8 +56,6 @@
     >
     </div>
   </div>
-
-
 
   <!-- Content -->
   <div
@@ -85,7 +80,7 @@
 
       <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up font-delay-600">
         <a
-          href="#services"
+          href="/#services"
           class="px-8 py-4 bg-white text-[#000000] font-medium rounded-xl shadow-2xl hover:bg-gray-50 transition-all active:scale-95 hover:scale-105"
         >
           Explorar Ahora
@@ -139,7 +134,9 @@
 
   // Canvas Plexus Logic (Network)
   const initPlexus = () => {
-    const canvas = document.getElementById("plexus-canvas") as HTMLCanvasElement;
+    const canvas = document.getElementById(
+      "plexus-canvas",
+    ) as HTMLCanvasElement;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -160,7 +157,11 @@
     resize();
 
     class Particle {
-      x: number; y: number; vx: number; vy: number; size: number;
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
@@ -192,7 +193,7 @@
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
         p1.update();
@@ -286,8 +287,6 @@
   .animate-pulse-slow {
     animation: pulse-slow 12s ease-in-out infinite;
   }
-
-
 
   .font-delay-200 {
     animation-delay: 0.5s;

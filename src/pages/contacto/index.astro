@@ -11,18 +11,26 @@ import Footer from "../../components/Footer.astro";
 <Layout title="Contacto | Innerneo">
   <Navbar />
   <main class="pt-20">
-    <div class="bg-[#0F0F1A] py-20 text-center relative overflow-hidden">
-      <!-- Decorative Background -->
-      <div
-        class="absolute top-0 left-0 w-full h-full bg-purple-gradient opacity-20"
-      >
-      </div>
-      <div class="relative z-10 max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl md:text-6xl font-syne font-bold text-white mb-6">
-          Contáctanos
+    <div
+      class="h-[400px] relative overflow-hidden flex items-center justify-center"
+    >
+      <!-- Background Image -->
+      <img
+        src="/images/contactus.jpg"
+        alt="Contact Us"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <!-- Overlay for better contrast -->
+      <div class="absolute inset-0 bg-black/80 z-10"></div>
+
+      <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
+        <h1
+          class="text-4xl uppercase md:text-8xl font-mont font-extrabold text-white mb-6 tracking-tight"
+        >
+          ¿Listo para <span class="text-[#612DAA] uppercase">empezar?</span>
         </h1>
-        <p class="text-gray-400 text-lg md:text-xl">
-          Estamos aquí para ayudarte a escalar tu idea tecnológica.
+        <p class="text-gray-200 text-lg md:text-xl font-medium">
+          Cuéntanos como escalar tus ideas.
         </p>
       </div>
     </div>

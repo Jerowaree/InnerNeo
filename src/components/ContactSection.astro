@@ -1,5 +1,5 @@
 ---
-
+import TypewriterTitle from "./TypewriterTitle.client.tsx";
 ---
 
 <section
@@ -9,7 +9,7 @@
   <div class="flex flex-col lg:flex-row w-full">
     <!-- Left: Content & Branding (Purple) -->
     <div
-      class="lg:w-1/2 bg-[#612DAA] p-12 md:p-24 flex flex-col justify-center relative"
+      class="lg:w-1/2 bg-[#59289e] p-12 md:p-24 flex flex-col justify-center relative"
     >
       <!-- Decorative grid -->
       <div
@@ -20,16 +20,19 @@
 
       <div class="relative z-10 max-w-lg">
         <h2
-          class="text-5xl md:text-7xl font-syne font-bold text-white mb-8 leading-tight"
+          class="text-5xl md:text-7xl font-mont font-extrabold text-white mb-8 leading-tight"
         >
-          Hablemos de <br />
-          <span class="text-white underline decoration-2 underline-offset-8"
-            >Resultados.</span
-          >
+          <TypewriterTitle client:load text="Hablemos de " />
+          <br />
+          <TypewriterTitle
+            client:load
+            delay={0.4}
+            text="Resultados."
+            className="text-white underline decoration-2 underline-offset-8 inline-block"
+          />
         </h2>
-        <p class="text-white/80 text-xl leading-relaxed mb-16">
-          Estamos listos para procesar tu solicitud con los más altos estándares
-          de ingeniería.
+        <p class="text-white/80 text-xl leading-relaxed mb-16 font-mont">
+          Cuéntanos sobre tu próximo gran proyecto. Estamos aquí para escucharte y materializar tus ideas con la mejor tecnología.
         </p>
 
         <div class="space-y-12">
