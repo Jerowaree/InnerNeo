@@ -10,10 +10,17 @@ import Banner from '../components/Banner.astro';
 import ProcessSection from '../components/ProcessSection.astro';
 import Projects from '../components/Projects.astro';
 import CTA from '../components/CTA.astro';
-import Footer from '../components/Footer.astro';
+import Footer from "../components/Footer.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout 
+  title={t('meta.home.title')}
+  description={t('meta.home.desc')}
+>
   <Navbar />
   <Hero />
   <KeywordMarquee />

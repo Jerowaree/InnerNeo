@@ -1,5 +1,9 @@
 ---
 import TypewriterTitle from "./TypewriterTitle.client.tsx";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -22,46 +26,46 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
         <h2
           class="text-5xl md:text-7xl font-mont font-extrabold text-white mb-8 leading-tight"
         >
-          <TypewriterTitle client:load text="Hablemos de " />
+          <TypewriterTitle client:load text={t('contact.hablemos')} />
           <br />
           <TypewriterTitle
             client:load
             delay={0.4}
-            text="Resultados."
+            text={t('contact.resultados')}
             className="text-white underline decoration-2 underline-offset-8 inline-block"
           />
         </h2>
         <p class="text-white/80 text-xl leading-relaxed mb-16 font-mont">
-          Cuéntanos sobre tu próximo gran proyecto. Estamos aquí para escucharte y materializar tus ideas con la mejor tecnología.
+          {t('contact.desc')}
         </p>
 
         <div class="space-y-12">
           <div class="flex items-center gap-6 group">
-            <div class="w-1 bg-white h-12"></div>
+            <div class="w-1 bg-white h-12 shrink-0"></div>
             <div>
               <p
                 class="text-[10px] font-black uppercase tracking-widest text-white/60 mb-1"
               >
-                WhatsApp / Call
+                {t('contact.whatsapp')}
               </p>
               <a
                 href="tel:+51955730233"
-                class="text-2xl font-bold text-white hover:text-white/80 transition-colors tracking-tight"
+                class="text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors tracking-tight"
                 >+51 955 730 233</a
               >
             </div>
           </div>
           <div class="flex items-center gap-6 group">
-            <div class="w-1 bg-white h-12"></div>
+            <div class="w-1 bg-white h-12 shrink-0"></div>
             <div>
               <p
                 class="text-[10px] font-black uppercase tracking-widest text-white/60 mb-1"
               >
-                Email Oficial
+                {t('contact.email')}
               </p>
               <a
                 href="mailto:innerneoficial@gmail.com"
-                class="text-2xl font-bold text-white hover:text-white/80 transition-colors tracking-tight"
+                class="text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors tracking-tight break-all md:break-normal"
                 >innerneoficial@gmail.com</a
               >
             </div>
@@ -78,6 +82,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
           class="space-y-10 max-w-2xl mx-auto"
           method="POST"
           action={import.meta.env.FORMSPREE_ENDPOINT || "#"}
+          data-lang={lang}
         >
           <div class="space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -86,13 +91,13 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
                 <label
                   for="name"
                   class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400"
-                  >Nombre o Razón Social*</label
+                  >{t('contact.form.name')}</label
                 >
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Tu nombre"
+                  placeholder={t('contact.form.placeholder.name')}
                   required
                   class="w-full bg-transparent border-b-2 border-gray-100 py-3 focus:border-purple-500 focus:outline-none transition-colors text-lg text-[#0F0F1A] rounded-none"
                 />
@@ -103,7 +108,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
                 <label
                   for="email"
                   class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400"
-                  >Email*</label
+                  >{t('contact.form.email')}</label
                 >
                 <input
                   type="email"
@@ -122,7 +127,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
                 <label
                   for="phone"
                   class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400"
-                  >Teléfono / WhatsApp</label
+                  >{t('contact.form.phone')}</label
                 >
                 <input
                   type="tel"
@@ -138,7 +143,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
                 <label
                   for="subject"
                   class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400"
-                  >Área de Interés</label
+                  >{t('contact.form.subject')}</label
                 >
                 <div class="relative">
                   <select
@@ -147,10 +152,10 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
                     class="w-full bg-transparent border-b-2 border-gray-100 py-3 focus:border-purple-500 focus:outline-none transition-colors text-lg text-[#0F0F1A] appearance-none rounded-none cursor-pointer"
                   >
                     <option class="px-2" value="new-project"
-                      >Nuevo Proyecto</option
+                      >{t('contact.form.subject.new')}</option
                     >
-                    <option class="px-2" value="support">Soporte</option>
-                    <option class="px-2" value="other">Otro</option>
+                    <option class="px-2" value="support">{t('contact.form.subject.support')}</option>
+                    <option class="px-2" value="other">{t('contact.form.subject.other')}</option>
                   </select>
                 </div>
               </div>
@@ -161,13 +166,13 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
               <label
                 for="message"
                 class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400"
-                >Tu Mensaje *</label
+                >{t('contact.form.message')}</label
               >
               <textarea
                 id="message"
                 name="message"
                 rows="3"
-                placeholder="Escribe tu mensaje..."
+                placeholder={t('contact.form.placeholder.message')}
                 required
                 class="w-full bg-transparent border-b-2 border-gray-100 py-3 focus:border-purple-500 focus:outline-none transition-colors text-lg text-[#0F0F1A] resize-none rounded-none"
               ></textarea>
@@ -203,7 +208,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
             disabled
             class="w-full py-6 bg-gray-200 text-white font-black uppercase tracking-[0.4em] transition-all cursor-not-allowed group overflow-hidden relative rounded-none"
           >
-            <span class="relative z-10">Enviar Consulta</span>
+            <span class="relative z-10">{t('contact.form.submit')}</span>
             <div
               id="btn-bg"
               class="absolute inset-0 bg-[#0F0F1A] opacity-0 transition-opacity duration-300"
@@ -248,17 +253,19 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
 <script>
   import { z } from "zod";
 
-  const contactSchema = z.object({
-    name: z.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre es muy largo"),
-    email: z.string().email("Por favor ingresa un email válido"),
-    phone: z.string().optional(),
-    subject: z.string().min(1, "Por favor selecciona un área de interés"),
-    message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres").max(1000, "El mensaje es muy largo"),
-  });
-
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contact-form") as HTMLFormElement;
     if (form) {
+      const lang = form.getAttribute("data-lang") || "es";
+
+      const contactSchema = z.object({
+        name: z.string().min(2, lang === 'es' ? "El nombre debe tener al menos 2 caracteres" : "Name must be at least 2 characters").max(100, lang === 'es' ? "El nombre es muy largo" : "Name is too long"),
+        email: z.string().email(lang === 'es' ? "Por favor ingresa un email válido" : "Please enter a valid email"),
+        phone: z.string().optional(),
+        subject: z.string().min(1, lang === 'es' ? "Por favor selecciona un área de interés" : "Please select an area of interest"),
+        message: z.string().min(10, lang === 'es' ? "El mensaje debe tener al menos 10 caracteres" : "Message must be at least 10 characters").max(1000, lang === 'es' ? "El mensaje es muy largo" : "Message is too long"),
+      });
+
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
@@ -289,7 +296,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
           return;
         }
 
-        span.innerText = "Procesando...";
+        span.innerText = lang === 'es' ? "Procesando..." : "Processing...";
         btn.disabled = true;
 
         try {
@@ -303,7 +310,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
           });
 
           if (response.ok) {
-            span.innerText = "¡Enviado!";
+            span.innerText = lang === 'es' ? "¡Enviado!" : "Sent!";
             btn.style.backgroundColor = "#22c55e";
             form.reset();
 
@@ -322,7 +329,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
             if (errorGeneral) {
               errorGeneral.textContent = respData.errors
                 ? respData.errors.map((e: any) => e.message).join(", ")
-                : "Error al enviar el formulario.";
+                : (lang === 'es' ? "Error al enviar el formulario." : "Error sending the form.");
               errorGeneral.classList.remove("hidden");
             }
             span.innerText = originalText;
@@ -330,7 +337,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
           }
         } catch (err) {
           if (errorGeneral) {
-            errorGeneral.textContent = "Error de conexión. Inténtalo de nuevo.";
+            errorGeneral.textContent = lang === 'es' ? "Error de conexión. Inténtalo de nuevo." : "Connection error. Please try again.";
             errorGeneral.classList.remove("hidden");
           }
           span.innerText = originalText;

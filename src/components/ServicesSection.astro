@@ -1,25 +1,30 @@
 ---
 import TypewriterTitle from "./TypewriterTitle.client.tsx";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const services = [
   {
-    title: "Web design & development",
-    desc: "Soluciones WEB enfocadas en los resultados.",
+    title: t('service1.title'),
+    desc: t('service1.desc'),
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 8v4l3 3"/><path d="M7 10a5 5 0 0 1 5-5"/><path d="M17 14a5 5 0 0 1-5 5"/></svg>`,
   },
   {
-    title: "Graphic design and branding",
-    desc: "La calidad de diseño gráfico que tanto buscabas.",
+    title: t('service2.title'),
+    desc: t('service2.desc'),
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="m7 8 5 3 5-3"/></svg>`,
   },
   {
-    title: "Content creation",
-    desc: "Contenidos que realmente hacen la diferencia.",
+    title: t('service3.title'),
+    desc: t('service3.desc'),
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
   },
   {
-    title: "Performance",
-    desc: "Estrategias digitales enfocadas en resultados.",
+    title: t('service4.title'),
+    desc: t('service4.desc'),
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>`,
   },
 ];
@@ -33,12 +38,12 @@ const services = [
       <span
         class="text-[#64748B] font-bold tracking-[0.2em] uppercase text-sm mb-6 block"
       >
-        Servicios TI
+        {t('services.label')}
       </span>
       <div class="relative">
         <TypewriterTitle
           client:load
-          text="Innovando sectores"
+          text={t('services.title1')}
           className="text-3xl md:text-7xl font-sans font-black text-[#0F0F1A] leading-[1.1] tracking-tight inline-block"
         />
         <div
@@ -48,7 +53,7 @@ const services = [
         <br />
         <TypewriterTitle
           client:load
-          text="Lidera en digital."
+          text={t('services.title2')}
           delay={0.5}
           className="text-3xl md:text-7xl font-sans font-black text-[#0F0F1A]/90 leading-[1.1] tracking-tight"
         />
@@ -57,15 +62,13 @@ const services = [
 
     <div class="lg:max-w-[400px] flex flex-col gap-8 pt-4">
       <p class="text-[#64748B] text-lg leading-relaxed font-medium">
-        Somos un estudio de ingeniería digital y diseño especializado en
-        desarrollo web, software a medida y experiencias de alto impacto
-        tecnológico.
+        {t('services.description')}
       </p>
       <a
-        href="/#contact"
+        href={translatePath('/#contact')}
         class="inline-block px-8 py-4 bg-[#612DAA] text-white font-black text-center rounded-lg shadow-lg hover:shadow-purple-500/20 hover:scale-105 transition-all active:scale-95"
       >
-        CONTÁCTANOS
+        {t('services.contact')}
       </a>
     </div>
   </div>

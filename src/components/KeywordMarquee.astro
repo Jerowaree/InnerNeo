@@ -1,18 +1,23 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const keywords = [
-  "Tecnología",
-  "Marketing Digital",
-  "Innovación",
-  "Inteligencia Artificial",
-  "Diseño UX/UI",
-  "Escalabilidad",
-  "Transformación Digital",
-  "Cloud Computing",
-  "Ciberseguridad",
-  "Arquitectura Web",
-  "Sistemas Empresariales",
-  "Desarrollo de Software",
-  "Software as a Service",
+  t('keywords.tech'),
+  t('keywords.marketing'),
+  t('keywords.innovation'),
+  t('keywords.ai'),
+  t('keywords.uxui'),
+  t('keywords.scalability'),
+  t('keywords.digital_trans'),
+  t('keywords.cloud'),
+  t('keywords.security'),
+  t('keywords.arch'),
+  t('keywords.enterprise'),
+  t('keywords.software_dev'),
+  t('keywords.saas'),
 ];
 
 // Duplicate keywords to ensure smooth infinite scroll

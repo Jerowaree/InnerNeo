@@ -1,5 +1,13 @@
 ---
-import { div } from "framer-motion/m";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <section
@@ -65,31 +73,31 @@ import { div } from "framer-motion/m";
       <h1
         class="text-5xl md:text-7xl font-mont font-black text-white leading-tight animate-fade-in-up font-delay-200"
       >
-        Impulsa tu Negocio <br />
+        {t("hero.title")}
+        <br />
         <span class="relative">
-          con <span class="text-white font-black">Soluciones IT</span>
+          {t("hero.subtitle")}
         </span>
       </h1>
 
       <p
         class="text-gray-100 text-lg md:text-xl max-w-xl leading-relaxed animate-fade-in-up font-delay-400"
       >
-        Comprometidos con la entrega de tecnología de vanguardia, priorizamos la
-        investigación y el desarrollo como nuestros principales activos.
+        {t("hero.description")}
       </p>
 
       <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up font-delay-600">
         <a
-          href="/#services"
+          href={translatePath("/#services")}
           class="px-8 py-4 bg-white text-[#000000] font-medium rounded-xl shadow-2xl hover:bg-gray-50 transition-all active:scale-95 hover:scale-105"
         >
-          Explorar Ahora
+          {t("hero.explore")}
         </a>
         <a
-          href="/contacto"
+          href={translatePath("/contacto")}
           class="px-8 py-4 bg-[#612DAA] border-2 border-[#612DAA] text-white font-medium rounded-xl hover:bg-[#6D28D9] hover:border-[#6D28D9] transition-all active:scale-95 flex items-center gap-2 hover:scale-105 shadow-[0_10px_40px_rgba(124,58,237,0.4)]"
         >
-          Contáctanos
+          {t("nav.contact")}
         </a>
       </div>
     </div>

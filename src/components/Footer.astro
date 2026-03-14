@@ -1,5 +1,10 @@
 ---
 import { getCurrentYear } from "../lib/utils";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <footer class="bg-[#161617] pt-20 pb-10 border-t border-white/5">
@@ -11,7 +16,7 @@ import { getCurrentYear } from "../lib/utils";
           Inner<span class="text-[#612DAA]">neo</span> Labs
         </div>
         <p class="text-gray-300 text-base mt-4 leading-relaxed max-w-sm">
-          Donde las ideas se convierten en sistemas.
+          {t('footer.description')}
         </p>
       </div>
 
@@ -88,7 +93,7 @@ import { getCurrentYear } from "../lib/utils";
     <div>
       <div class="inline-block relative mb-8">
         <h4 class="text-white font-bold text-xl tracking-tight">
-          Enlaces Rápidos
+          {t('footer.links.title')}
         </h4>
         <div class="absolute -bottom-1 left-0 w-full h-[2px] bg-[#612DAA]">
         </div>
@@ -96,42 +101,42 @@ import { getCurrentYear } from "../lib/utils";
       <ul class="text-gray-300 text-base space-y-5">
         <li>
           <a
-            href="#about"
+            href={translatePath('#about')}
             class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
             ><span
               class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
               >&gt;</span
-            > Sobre Nosotros</a
+            > {t('footer.links.about')}</a
           >
         </li>
         <li>
           <a
-            href="#services"
+            href={translatePath('#services')}
             class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
             ><span
               class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
               >&gt;</span
-            > Nuestros Servicios</a
+            > {t('footer.links.services')}</a
           >
         </li>
         <li>
           <a
-            href="#process"
+            href={translatePath('#process')}
             class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
             ><span
               class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
               >&gt;</span
-            > Proceso de Trabajo</a
+            > {t('footer.links.process')}</a
           >
         </li>
         <li>
           <a
-            href="#projects"
+            href={translatePath('#projects')}
             class="hover:text-[#612DAA] transition-colors flex items-center gap-3 group/link"
             ><span
               class="text-[#612DAA] font-bold group-hover/link:translate-x-1 transition-transform"
               >&gt;</span
-            >Proyectos</a
+            >{t('footer.links.projects')}</a
           >
         </li>
       </ul>
@@ -140,7 +145,7 @@ import { getCurrentYear } from "../lib/utils";
     <!-- Contact Section -->
     <div class="flex flex-col">
       <div class="inline-block relative mb-8 self-start">
-        <h4 class="text-white font-bold text-xl tracking-tight">Contáctanos</h4>
+        <h4 class="text-white font-bold text-xl tracking-tight">{t('footer.contact.title')}</h4>
         <div class="absolute -bottom-1 left-0 w-full h-[2px] bg-[#612DAA]">
         </div>
       </div>
@@ -166,7 +171,7 @@ import { getCurrentYear } from "../lib/utils";
             <div
               class="text-[12px] text-gray-500 font-semibold uppercase tracking-widest mb-1"
             >
-              WhatsApp / Call
+              {t('footer.contact.whatsapp')}
             </div>
             <a
               href="tel:+51955730233"
@@ -196,7 +201,7 @@ import { getCurrentYear } from "../lib/utils";
             <div
               class="text-[12px] text-gray-500 font-semibold uppercase tracking-widest mb-1"
             >
-              Email Oficial
+              {t('footer.contact.email')}
             </div>
             <a
               href="mailto:innerneoficial@gmail.com"
@@ -208,7 +213,7 @@ import { getCurrentYear } from "../lib/utils";
       </div>
 
       <a
-        href="/contacto"
+        href={translatePath('/contacto')}
         class="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#612DAA] text-white font-bold rounded-s-sm overflow-hidden transition-all duration-300 w-fit"
       >
         <!-- Hover Fill Layer -->
@@ -218,7 +223,7 @@ import { getCurrentYear } from "../lib/utils";
 
         <span
           class="relative z-10 group-hover:text-black transition-colors duration-300"
-          >Obtén una cotización</span
+          >{t('footer.contact.cta')}</span
         >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -240,8 +245,7 @@ import { getCurrentYear } from "../lib/utils";
   <div class="mt-20 pt-10 border-t border-white/5 text-center px-6">
     <p class="text-gray-500 text-sm font-medium tracking-wide">
       © {getCurrentYear()}
-      <span>Innerneo Labs</span> — Todos los derechos reservados. Diseñando con precisión
-      para el futuro digital.
+      <span>Innerneo Labs</span> — {t('footer.rights')}
     </p>
   </div>
 </footer>

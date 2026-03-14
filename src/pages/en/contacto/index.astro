@@ -1,9 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/Navbar.astro";
-import ContactSection from "../../components/ContactSection.astro";
-import Footer from "../../components/Footer.astro";
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import Navbar from "../../../components/Navbar.astro";
+import ContactSection from "../../../components/ContactSection.astro";
+import Footer from "../../../components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import KeywordMarquee from "../../../components/KeywordMarquee.astro";
+import Layout from "../../../layouts/Layout.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -12,9 +13,9 @@ const t = useTranslations(lang);
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
 ></script>
 
-<Layout 
-  title={t('meta.contact.title')} 
-  description={t('meta.contact.desc')}
+<Layout
+  title={t("meta.contact.title")}
+  description={t("meta.contact.desc")}
   image="/images/contactus.jpg"
 >
   <Navbar />
@@ -35,10 +36,10 @@ const t = useTranslations(lang);
         <h1
           class="text-4xl uppercase md:text-8xl font-mont font-extrabold text-white mb-6 tracking-tight"
         >
-          <Fragment set:html={t('contact.title')} />
+          <Fragment set:html={t("contact.title")} />
         </h1>
         <p class="text-gray-200 text-lg md:text-xl font-medium">
-          {t('contact.subtitle')}
+          {t("contact.subtitle")}
         </p>
       </div>
     </div>
@@ -51,40 +52,40 @@ const t = useTranslations(lang);
           <!-- Column 1: FAQ -->
           <div class="lg:col-span-2 space-y-8">
             <h3 class="text-3xl font-syne font-bold text-[#0F0F1A]">
-              {t('contact.faq.title')}
+              {t("contact.faq.title")}
             </h3>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="space-y-3">
                 <h4 class="font-bold text-[#612DAA]">
-                  {t('contact.faq.q1')}
+                  {t("contact.faq.q1")}
                 </h4>
                 <p class="text-gray-500 text-sm leading-relaxed">
-                  {t('contact.faq.a1')}
+                  {t("contact.faq.a1")}
                 </p>
               </div>
               <div class="space-y-3">
                 <h4 class="font-bold text-[#612DAA]">
-                  {t('contact.faq.q2')}
+                  {t("contact.faq.q2")}
                 </h4>
                 <p class="text-gray-500 text-sm leading-relaxed">
-                  {t('contact.faq.a2')}
+                  {t("contact.faq.a2")}
                 </p>
               </div>
               <div class="space-y-3">
                 <h4 class="font-bold text-[#612DAA]">
-                  {t('contact.faq.q3')}
+                  {t("contact.faq.q3")}
                 </h4>
                 <p class="text-gray-500 text-sm leading-relaxed">
-                  {t('contact.faq.a3')}
+                  {t("contact.faq.a3")}
                 </p>
               </div>
               <div class="space-y-3">
                 <h4 class="font-bold text-[#612DAA]">
-                  {t('contact.faq.q4')}
+                  {t("contact.faq.q4")}
                 </h4>
                 <p class="text-gray-500 text-sm leading-relaxed">
-                  {t('contact.faq.a4')}
+                  {t("contact.faq.a4")}
                 </p>
               </div>
             </div>
@@ -95,7 +96,7 @@ const t = useTranslations(lang);
             class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-purple-500/5"
           >
             <h3 class="text-xl font-bold text-[#0F0F1A] mb-8">
-              {t('contact.next.title')}
+              {t("contact.next.title")}
             </h3>
             <ul class="space-y-6">
               <li class="flex gap-4">
@@ -105,9 +106,11 @@ const t = useTranslations(lang);
                   1
                 </div>
                 <div>
-                  <h5 class="font-bold text-sm">{t('contact.next.step1.title')}</h5>
+                  <h5 class="font-bold text-sm">
+                    {t("contact.next.step1.title")}
+                  </h5>
                   <p class="text-xs text-gray-500 mt-1">
-                    {t('contact.next.step1.desc')}
+                    {t("contact.next.step1.desc")}
                   </p>
                 </div>
               </li>
@@ -118,9 +121,11 @@ const t = useTranslations(lang);
                   2
                 </div>
                 <div>
-                  <h5 class="font-bold text-sm">{t('contact.next.step2.title')}</h5>
+                  <h5 class="font-bold text-sm">
+                    {t("contact.next.step2.title")}
+                  </h5>
                   <p class="text-xs text-gray-500 mt-1">
-                    {t('contact.next.step2.desc')}
+                    {t("contact.next.step2.desc")}
                   </p>
                 </div>
               </li>
@@ -131,9 +136,11 @@ const t = useTranslations(lang);
                   3
                 </div>
                 <div>
-                  <h5 class="font-bold text-sm">{t('contact.next.step3.title')}</h5>
+                  <h5 class="font-bold text-sm">
+                    {t("contact.next.step3.title")}
+                  </h5>
                   <p class="text-xs text-gray-500 mt-1">
-                    {t('contact.next.step3.desc')}
+                    {t("contact.next.step3.desc")}
                   </p>
                 </div>
               </li>

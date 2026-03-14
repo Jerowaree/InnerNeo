@@ -1,5 +1,13 @@
 ---
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <section class="py-24 bg-white" aria-labelledby="projects-title">
@@ -10,18 +18,19 @@
       <div>
         <span
           class="text-[#612DAA] font-bold tracking-widest uppercase text-sm block mb-4"
-          >Portafolio</span
+          >{t("projects.label")}</span
         >
         <h2
           id="projects-title"
           class="text-4xl md:text-5xl font-mont font-black text-[#0F0F1A]"
         >
-          Nuestros <span class="text-[#612DAA]">Proyectos</span>
+          {t("projects.title").split(" ")[0]}
+          <span class="text-[#612DAA]">{t("projects.title").split(" ")[1]}</span
+          >
         </h2>
       </div>
       <p class="text-gray-500 max-w-md text-lg">
-        Software y plataformas de alto rendimiento diseñadas para escalar
-        operaciones con tecnología de vanguardia.
+        {t("projects.description")}
       </p>
     </div>
 
@@ -44,19 +53,17 @@
         <h3
           class="text-xl font-bold text-[#0F0F1A] mb-3 group-hover:text-[#612DAA] transition-colors"
         >
-          Scars - Landing & ERP
+          {t("project1.title")}
         </h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-6">
-          Desarrollo de landing page corporativa y sistema integral de gestión
-          para talleres automotrices, optimizando el control de servicios y
-          caja.
+          {t("project1.desc")}
         </p>
         <a
           href="https://scarsperu.com"
           target="_blank"
           class="text-sm font-bold text-[#612DAA] flex items-center gap-2 group/link"
         >
-          Ver Proyecto
+          {t("project.view")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -91,18 +98,17 @@
         <h3
           class="text-xl font-bold text-[#0F0F1A] mb-3 group-hover:text-[#612DAA] transition-colors"
         >
-          NextFit - Gestión de Centros Fit
+          {t("project2.title")}
         </h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-6">
-          Plataforma integral para la administración inteligente de gimnasios y
-          centros deportivos con control de socios y pagos.
+          {t("project2.desc")}
         </p>
         <a
           href="https://nextfitoficial.com"
           target="_blank"
           class="text-sm font-bold text-[#612DAA] flex items-center gap-2 group/link"
         >
-          Ver Proyecto
+          {t("project.view")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -145,19 +151,17 @@
           <h3
             class="text-xl font-bold text-[#0F0F1A] mb-3 group-hover:text-[#612DAA] transition-colors"
           >
-            ¿Tu Negocio Aquí?
+            {t("project3.title")}
           </h3>
           <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            Estamos listos para transformar tu idea en el próximo caso de éxito.
-            Tu empresa puede ser la siguiente en dar el salto digital con
-            nosotros.
+            {t("project3.desc")}
           </p>
         </div>
         <a
-          href="/contacto"
+          href={translatePath("/contacto")}
           class="text-sm font-bold text-[#612DAA] flex items-center gap-2 group/link"
         >
-          Iniciar Proyecto
+          {t("project.start")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

@@ -1,32 +1,38 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 const solutions = [
   {
-    name: "Apps Móviles",
-    href: "#",
+    name: t('service1.title'),
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400",
-    desc: "Desarrollo nativo e híbrido para iOS y Android.",
+    desc: t('service1.desc'),
   },
   {
     name: "E-commerce",
-    href: "#",
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=400",
-    desc: "Tiendas online de alto rendimiento y conversión.",
+    desc: t('service1.desc'), // Or use a specific key if available
   },
   {
     name: "Cloud Engineering",
-    href: "#",
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=400",
-    desc: "Infraestructura escalable y segura en la nube.",
+    desc: t('service1.desc'),
   },
   {
     name: "Inteligencia Artificial",
-    href: "#",
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400",
-    desc: "Modelos predictivos y automatización inteligente.",
+    desc: t('service1.desc'),
   },
 ];
 
@@ -35,45 +41,45 @@ const projects = [
     name: "NextFit",
     href: "https://nextfitoficial.com",
     external: true,
-    desc: "Plataforma integral para la gestión de centros deportivos.",
+    desc: t('project2.desc'),
   },
   {
     name: "Master Manager",
-    href: "#",
+    href: translatePath('/') + '#projects',
     external: false,
     comingSoon: true,
-    desc: "Plataforma web para gestión y administración de inventarios y caja.",
+    desc: t('project3.desc'),
   },
 ];
 
 const services = [
   {
-    name: "Desarrollo web",
-    href: "/#services",
+    name: t('service1.title'),
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=400",
-    desc: "Desarrollo de software a medida para empresas.",
+    desc: t('service1.desc'),
   },
   {
-    name: "Diseño UX/UI",
-    href: "/#services",
+    name: t('service2.title'),
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=400",
-    desc: "Diseño de interfaces intuitivas y atractivas para tus usuarios.",
+    desc: t('service2.desc'),
   },
   {
-    name: "Creación de Contenido",
-    href: "/#services",
+    name: t('service3.title'),
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400",
-    desc: "Generación de contenido estratégico para marcas IT.",
+    desc: t('service3.desc'),
   },
   {
-    name: "Mantenimiento & Soporte",
-    href: "/#services",
+    name: t('service4.title'),
+    href: translatePath('/') + '#services',
     image:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=400",
-    desc: "Garantía de estabilidad y mejora continua.",
+    desc: t('service4.desc'),
   },
 ];
 ---
@@ -91,7 +97,7 @@ const services = [
 
   <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 group shrink-0">    
+    <a href={translatePath('/')} class="flex items-center gap-2 group shrink-0">
       <span
         class="font-mont text-2xl font-black text-[#0F0F1A] tracking-tighter"
         >INNER<span class="text-[#612DAA]">NEO</span></span
@@ -106,7 +112,7 @@ const services = [
           <button
             class="flex items-center gap-1 text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-colors"
           >
-            Soluciones
+            {t('nav.solutions')}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -168,7 +174,7 @@ const services = [
           <button
             class="flex items-center gap-1 text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-colors"
           >
-            Proyectos
+            {t('nav.projects')}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -192,7 +198,7 @@ const services = [
             >
               <span
                 class="text-[10px] uppercase tracking-widest font-black text-[#612DAA] px-4 mb-2 block"
-                >Casos de éxito</span
+                >{t('nav.success_cases')}</span
               >
               <div class="flex flex-col gap-2">
                 {
@@ -207,7 +213,7 @@ const services = [
                           {item.name}
                           {item.comingSoon && (
                             <span class="text-[9px] font-black bg-purple-100 text-[#612DAA] px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                              Próximamente
+                              {t('nav.coming_soon')}
                             </span>
                           )}
                         </span>
@@ -243,10 +249,10 @@ const services = [
 
         <!-- Proceso Link -->
         <a
-          href="/#process"
+          href={translatePath('/') + '#process'}
           class="text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-all relative group"
         >
-          Proceso
+          {t('nav.process')}
           <span
             class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#612DAA] transition-all group-hover:w-full"
           ></span>
@@ -257,7 +263,7 @@ const services = [
           <button
             class="flex items-center gap-1 text-base font-bold text-[#0F0F1A] hover:text-[#612DAA] transition-colors"
           >
-            Servicios
+            {t('nav.services')}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -316,20 +322,49 @@ const services = [
       </div>
 
       <!-- Contacto & Lang -->
-      <div class="bg-transparent pl-4 border-l border-gray-100 flex items-center gap-4">
-        <!-- Language Switcher Desktop -->
-        <div class="flex items-center gap-2 text-xs font-bold text-[#0F0F1A] bg-gray-50 px-3 py-1.5 rounded-full">
-          <button onclick="changeLanguage('es')" class="hover:text-[#612DAA] transition-colors">ES</button>
-          <span class="text-gray-300">|</span>
-          <button onclick="changeLanguage('en')" class="hover:text-[#612DAA] transition-colors">EN</button>
-        </div>
-        
+      <div class="bg-transparent pl-4 border-l border-gray-100 flex items-center gap-3">
         <a
-          href="/contacto"
+          href={translatePath('/contacto')}
           class="inline-flex items-center px-6 py-3 bg-[#612DAA] text-white text-base font-semibold rounded-s-sm hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all active:scale-95 uppercase tracking-wide"
         >
-          Contáctanos
+          {t('nav.contact')}
         </a>
+
+        <!-- Language Switcher Desktop Dropdown -->
+        <div class="relative group hidden lg:block">
+          <button
+            class="flex items-center gap-1.5 text-xs font-bold text-[#0F0F1A] bg-white border border-gray-200 px-3 py-2 rounded-full shadow-sm hover:border-[#612DAA] hover:text-[#612DAA] transition-all duration-300"
+          >
+            <!-- Globe Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            <span id="current-lang-display" class="tracking-wider uppercase">{lang === 'es' ? t('lang.es') : t('lang.en')}</span>
+            <!-- Chevron Down -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="group-hover:rotate-180 transition-transform duration-300"
+              ><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+
+          <!-- Dropdown Options -->
+          <div
+            class="absolute top-[100%] right-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-[110]"
+          >
+            <div
+              class="w-32 bg-white border border-gray-100 rounded-2xl p-2 shadow-xl flex flex-col gap-1"
+            >
+              <a href={translatePath(Astro.url.pathname, 'es')} class="text-left px-4 py-2 text-sm font-bold text-[#0F0F1A] hover:bg-[#F8FAFF] hover:text-[#612DAA] rounded-xl transition-colors w-full uppercase">{t('lang.es')}</a>
+              <a href={translatePath(Astro.url.pathname, 'en')} class="text-left px-4 py-2 text-sm font-bold text-[#0F0F1A] hover:bg-[#F8FAFF] hover:text-[#612DAA] rounded-xl transition-colors w-full uppercase">{t('lang.en')}</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -371,35 +406,35 @@ const services = [
   <div id="mobile-menu-overlay" class="fixed top-[var(--header-height)] left-0 w-full h-[calc(100vh-var(--header-height))] bg-white z-[90] flex-col p-6 pb-32 hidden overflow-y-auto">
     <div class="flex flex-col gap-6 text-xl font-bold mt-4">
       <div class="pb-4 border-b border-gray-100 flex flex-col gap-4">
-        <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">Soluciones</span>
+        <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">{t('nav.solutions')}</span>
         {solutions.map((item) => (
           <a href={item.href} class="text-[#0F0F1A] text-lg pl-2 hover:text-[#612DAA]">{item.name}</a>
         ))}
       </div>
       <div class="pb-4 border-b border-gray-100 flex flex-col gap-4">
-        <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">Proyectos</span>
+        <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">{t('nav.projects')}</span>
         {projects.map((item) => (
           <a href={item.href} class="text-[#0F0F1A] text-lg pl-2 hover:text-[#612DAA] flex items-center gap-2">
             {item.name}
             {item.comingSoon && (
               <span class="text-[9px] font-black bg-purple-100 text-[#612DAA] px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                Próximamente
+                {t('nav.coming_soon')}
               </span>
             )}
           </a>
         ))}
       </div>
-      <a href="/#process" class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">Proceso</a>
-      <a href="/#services" class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">Servicios</a>
+      <a href={translatePath('/') + '#process'} class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">{t('nav.process')}</a>
+      <a href={translatePath('/') + '#services'} class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">{t('nav.services')}</a>
       
       <!-- Language Switcher Mobile -->
       <div class="flex items-center gap-4 pb-4 border-b border-gray-100 uppercase tracking-wide">
-        <span class="text-[#0F0F1A] opacity-50 text-sm">Idioma:</span>
-        <button onclick="changeLanguage('es')" class="text-[#0F0F1A] hover:text-[#612DAA] font-black">ES</button>
+        <span class="text-[#0F0F1A] opacity-50 text-sm">{lang === 'es' ? 'Idioma' : 'Language'}:</span>
+        <a href={translatePath(Astro.url.pathname, 'es')} class={`text-[#0F0F1A] hover:text-[#612DAA] font-black ${lang === 'es' ? 'text-[#612DAA]' : ''}`}>{t('lang.es')}</a>
         <span class="text-gray-300">|</span>
-        <button onclick="changeLanguage('en')" class="text-[#0F0F1A] hover:text-[#612DAA] font-black">EN</button>
+        <a href={translatePath(Astro.url.pathname, 'en')} class={`text-[#0F0F1A] hover:text-[#612DAA] font-black ${lang === 'en' ? 'text-[#612DAA]' : ''}`}>{t('lang.en')}</a>
       </div>
-      <a href="/contacto" class="text-white bg-[#612DAA] py-4 px-6 rounded-xl text-center uppercase tracking-wider mt-4">Contáctanos</a>
+      <a href={translatePath('/contacto')} class="text-white bg-[#612DAA] py-4 px-6 rounded-xl text-center uppercase tracking-wider mt-4">{t('nav.contact')}</a>
     </div>
   </div>
 </nav>
@@ -454,17 +489,4 @@ const services = [
       });
     });
   }
-  
-  // Translation Switcher Logic
-  window.changeLanguage = function (lang) {
-    // Determine domain (handles localhost and production)
-    const domain = window.location.hostname;
-    
-    // Set Google Translate cookie
-    document.cookie = `googtrans=/es/${lang}; path=/; domain=${domain}`;
-    document.cookie = `googtrans=/es/${lang}; path=/;`;
-    
-    // Reload to apply translation
-    window.location.reload();
-  };
 </script>

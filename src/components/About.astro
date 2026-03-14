@@ -1,5 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <section
@@ -43,31 +47,27 @@
           <div class="w-8 h-px bg-[#612DAA]"></div>
           <span
             class="text-[#612DAA] font-bold tracking-[0.2em] uppercase text-xs"
-            >Sobre Nosotros</span
+            >{t('about.label')}</span
           >
         </div>
         <h2
           class="text-4xl md:text-5xl font-mont font-bold text-white leading-tight"
         >
-          Impulsamos tus ideas con una <br />
-          <span class="">solución eficaz</span>
+          <Fragment set:html={t('about.title')} />
         </h2>
       </div>
 
       <p class="text-gray-300 text-lg leading-relaxed reveal delay-300">
-        En Innerneo Labs, combinamos una profunda experiencia técnica con un
-        enfoque centrado en las personas para crear software que realmente
-        marque la diferencia. Nuestro equipo está dedicado a la excelencia y la
-        innovación constante.
+        {t('about.description')}
       </p>
 
       <div class="grid sm:grid-cols-2 gap-6 items-center">
         <ul class="space-y-5">
           {
             [
-              "Expertos en el Sector",
-              "Soluciones de Alta Calidad",
-              "Soporte Especializado",
+              t('about.feature1'),
+              t('about.feature2'),
+              t('about.feature3'),
             ].map((item) => (
               <li class="flex items-center gap-4 text-white/90 font-medium">
                 <div class="w-6 h-6 rounded-full bg-[#612DAA]/20 flex items-center justify-center text-[#612DAA] border border-[#612DAA]/30">
@@ -94,10 +94,10 @@
 
       <div class="flex flex-wrap items-center gap-10 pt-6">
         <a
-          href="#projects"
+          href={translatePath('/#projects')}
           class="group px-8 py-4 bg-white text-[#0F0F1A] font-bold rounded-sm hover:bg-[#612DAA] hover:text-white transition-all shadow-xl hover:shadow-[#612DAA]/30 active:scale-95 flex items-center gap-2"
         >
-          Explorar Más
+          {t('about.explore')}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -128,7 +128,7 @@
             <div
               class="text-[10px] text-[#94A3B8] font-mont font-black uppercase tracking-[0.2em]"
             >
-              Clientes Satisfechos
+              {t('about.clients')}
             </div>
           </div>
         </div>

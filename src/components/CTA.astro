@@ -1,6 +1,11 @@
 ---
 import ProjectModal from "./ProjectModal.client";
 import TypewriterTitle from "./TypewriterTitle.client.tsx";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <section id="contact" class="py-32 bg-[#612DAA] relative overflow-hidden group">
@@ -64,13 +69,13 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
     >
       <TypewriterTitle
         client:load
-        text="¿Listo para construir "
+        text={t('cta.title1')}
         className="text-white inline-block"
       />
       <br class="hidden md:block" />
       <TypewriterTitle
         client:load
-        text="algo grande?"
+        text={t('cta.title2')}
         delay={0.6}
         className="text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] to-white inline-block"
       />
@@ -78,8 +83,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
     <p
       class="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
     >
-      Cuéntanos tu idea. Nosotros nos encargamos de transformarla en una
-      realidad tecnológica de alto impacto.
+      {t('cta.description')}
     </p>
     <div class="flex justify-center w-full mt-4">
       <div class="relative group/btn">
@@ -91,7 +95,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
 
         <!-- Actual Button (Now linking to the new page) -->
         <a
-          href="/contacto"
+          href={translatePath('/contacto')}
           class="group/btn2 relative px-12 py-5 rounded-xl bg-white border border-transparent hover:bg-transparent hover:border-white text-black hover:text-white font-bold transition-all duration-500 active:scale-95 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
         >
           <!-- Expanding Borders on Hover -->
@@ -103,7 +107,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
           ></span>
 
           <span class="relative z-10 flex items-center gap-2">
-            Iniciar un Proyecto
+            {t('project.start')}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
