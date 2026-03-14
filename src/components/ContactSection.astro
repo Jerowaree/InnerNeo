@@ -246,22 +246,51 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
 </script>
 
 <script>
+  import { z } from "zod";
+
+  const contactSchema = z.object({
+    name: z.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre es muy largo"),
+    email: z.string().email("Por favor ingresa un email válido"),
+    phone: z.string().optional(),
+    subject: z.string().min(1, "Por favor selecciona un área de interés"),
+    message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres").max(1000, "El mensaje es muy largo"),
+  });
+
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contact-form") as HTMLFormElement;
     if (form) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
         const btn = form.querySelector("button");
         const span = btn ? btn.querySelector("span") : null;
         if (!btn || !span) return;
 
         const originalText = span.innerText;
+        const errorGeneral = document.getElementById("error-general");
+        
+        if (errorGeneral) {
+          errorGeneral.classList.add("hidden");
+          errorGeneral.textContent = "";
+        }
+
+        // Validate using Zod
+        try {
+          contactSchema.parse(data);
+        } catch (error) {
+          if (error instanceof z.ZodError) {
+            const errorMessages = error.errors.map(err => err.message).join(" • ");
+            if (errorGeneral) {
+              errorGeneral.textContent = errorMessages;
+              errorGeneral.classList.remove("hidden");
+            }
+          }
+          return;
+        }
+
         span.innerText = "Procesando...";
         btn.disabled = true;
-
-        const errorGeneral = document.getElementById("error-general");
-        if (errorGeneral) errorGeneral.classList.add("hidden");
 
         try {
           // Standard client-side fetch to Formspree
@@ -289,10 +318,10 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
               btn.disabled = false;
             }, 5000);
           } else {
-            const data = await response.json();
+            const respData = await response.json();
             if (errorGeneral) {
-              errorGeneral.textContent = data.errors
-                ? data.errors.map((e: any) => e.message).join(", ")
+              errorGeneral.textContent = respData.errors
+                ? respData.errors.map((e: any) => e.message).join(", ")
                 : "Error al enviar el formulario.";
               errorGeneral.classList.remove("hidden");
             }
