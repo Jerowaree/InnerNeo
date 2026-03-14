@@ -315,8 +315,15 @@ const services = [
         </div>
       </div>
 
-      <!-- Contacto -->
-      <div class="bg-transparent pl-4 border-l border-gray-100">
+      <!-- Contacto & Lang -->
+      <div class="bg-transparent pl-4 border-l border-gray-100 flex items-center gap-4">
+        <!-- Language Switcher Desktop -->
+        <div class="flex items-center gap-2 text-xs font-bold text-[#0F0F1A] bg-gray-50 px-3 py-1.5 rounded-full">
+          <button onclick="changeLanguage('es')" class="hover:text-[#612DAA] transition-colors">ES</button>
+          <span class="text-gray-300">|</span>
+          <button onclick="changeLanguage('en')" class="hover:text-[#612DAA] transition-colors">EN</button>
+        </div>
+        
         <a
           href="/contacto"
           class="inline-flex items-center px-6 py-3 bg-[#612DAA] text-white text-base font-semibold rounded-s-sm hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all active:scale-95 uppercase tracking-wide"
@@ -361,7 +368,7 @@ const services = [
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu-overlay" class="fixed top-[var(--header-height)] left-0 w-full h-[calc(100vh-var(--header-height))] bg-white z-[90] flex-col p-6 hidden overflow-y-auto">
+  <div id="mobile-menu-overlay" class="fixed top-[var(--header-height)] left-0 w-full h-[calc(100vh-var(--header-height))] bg-white z-[90] flex-col p-6 pb-32 hidden overflow-y-auto">
     <div class="flex flex-col gap-6 text-xl font-bold mt-4">
       <div class="pb-4 border-b border-gray-100 flex flex-col gap-4">
         <span class="text-[#0F0F1A] opacity-50 text-sm uppercase tracking-widest">Soluciones</span>
@@ -384,6 +391,14 @@ const services = [
       </div>
       <a href="/#process" class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">Proceso</a>
       <a href="/#services" class="text-[#0F0F1A] pb-4 border-b border-gray-100 uppercase tracking-wide">Servicios</a>
+      
+      <!-- Language Switcher Mobile -->
+      <div class="flex items-center gap-4 pb-4 border-b border-gray-100 uppercase tracking-wide">
+        <span class="text-[#0F0F1A] opacity-50 text-sm">Idioma:</span>
+        <button onclick="changeLanguage('es')" class="text-[#0F0F1A] hover:text-[#612DAA] font-black">ES</button>
+        <span class="text-gray-300">|</span>
+        <button onclick="changeLanguage('en')" class="text-[#0F0F1A] hover:text-[#612DAA] font-black">EN</button>
+      </div>
       <a href="/contacto" class="text-white bg-[#612DAA] py-4 px-6 rounded-xl text-center uppercase tracking-wider mt-4">Contáctanos</a>
     </div>
   </div>
@@ -439,4 +454,17 @@ const services = [
       });
     });
   }
+  
+  // Translation Switcher Logic
+  window.changeLanguage = function (lang) {
+    // Determine domain (handles localhost and production)
+    const domain = window.location.hostname;
+    
+    // Set Google Translate cookie
+    document.cookie = `googtrans=/es/${lang}; path=/; domain=${domain}`;
+    document.cookie = `googtrans=/es/${lang}; path=/;`;
+    
+    // Reload to apply translation
+    window.location.reload();
+  };
 </script>

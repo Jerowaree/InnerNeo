@@ -39,7 +39,7 @@ const services = [
         <TypewriterTitle
           client:load
           text="Innovando sectores"
-          className="text-4xl md:text-7xl font-sans font-black text-[#0F0F1A] leading-[1.1] tracking-tight inline-block"
+          className="text-3xl md:text-7xl font-sans font-black text-[#0F0F1A] leading-[1.1] tracking-tight inline-block"
         />
         <div
           class="hidden md:inline-block w-4 h-4 bg-[#612DAA] mb-1 ml-1 animate-pulse"
@@ -50,7 +50,7 @@ const services = [
           client:load
           text="Lidera en digital."
           delay={0.5}
-          className="text-4xl md:text-7xl font-sans font-black text-[#0F0F1A]/90 leading-[1.1] tracking-tight"
+          className="text-3xl md:text-7xl font-sans font-black text-[#0F0F1A]/90 leading-[1.1] tracking-tight"
         />
       </div>
     </div>
@@ -102,16 +102,19 @@ const services = [
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   });
 </script>
 
