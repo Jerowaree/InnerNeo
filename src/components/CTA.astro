@@ -89,10 +89,10 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
         >
         </div>
 
-        <!-- Actual Button -->
-        <button
+        <!-- Actual Button (Now linking to the new page) -->
+        <a
+          href="/contacto"
           class="group/btn2 relative px-12 py-5 rounded-xl bg-white border border-transparent hover:bg-transparent hover:border-white text-black hover:text-white font-bold transition-all duration-500 active:scale-95 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
-          onclick="window.dispatchEvent(new CustomEvent('open-project-modal'))"
         >
           <!-- Expanding Borders on Hover -->
           <span
@@ -118,7 +118,7 @@ import TypewriterTitle from "./TypewriterTitle.client.tsx";
               ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
             >
           </span>
-        </button>
+        </a>
       </div>
     </div>
   </div>

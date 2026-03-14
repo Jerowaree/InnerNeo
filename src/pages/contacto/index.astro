@@ -1,0 +1,136 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import ContactSection from "../../components/ContactSection.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
+></script>
+
+<Layout title="Contacto | Innerneo">
+  <Navbar />
+  <main class="pt-20">
+    <div class="bg-[#0F0F1A] py-20 text-center relative overflow-hidden">
+      <!-- Decorative Background -->
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-purple-gradient opacity-20"
+      >
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto px-6">
+        <h1 class="text-4xl md:text-6xl font-syne font-bold text-white mb-6">
+          Contáctanos
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl">
+          Estamos aquí para ayudarte a escalar tu idea tecnológica.
+        </p>
+      </div>
+    </div>
+    <ContactSection />
+
+    <!-- FAQ / Next Steps Section -->
+    <section class="py-24 bg-gray-50/50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Column 1: FAQ -->
+          <div class="lg:col-span-2 space-y-8">
+            <h3 class="text-3xl font-syne font-bold text-[#0F0F1A]">
+              Preguntas Frecuentes
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <h4 class="font-bold text-[#612DAA]">
+                  ¿Cuánto tiempo tardan en responder?
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Normalmente respondemos en menos de 24 horas hábiles. Tu
+                  proyecto es nuestra prioridad.
+                </p>
+              </div>
+              <div class="space-y-3">
+                <h4 class="font-bold text-[#612DAA]">
+                  ¿Trabajan con clientes internacionales?
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Sí, tenemos experiencia colaborando de forma remota con
+                  empresas de toda Latinoamérica.
+                </p>
+              </div>
+              <div class="space-y-3">
+                <h4 class="font-bold text-[#612DAA]">
+                  ¿Ofrecen asesoría tecnológica gratuita?
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Nuestra primera llamada de descubrimiento es totalmente sin
+                  costo para entender tus necesidades.
+                </p>
+              </div>
+              <div class="space-y-3">
+                <h4 class="font-bold text-[#612DAA]">
+                  ¿Hacen mantenimiento de software existente?
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Sí, realizamos auditorías y tomamos proyectos en curso para su
+                  optimización y escalabilidad.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Process Steps -->
+          <div
+            class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-purple-500/5"
+          >
+            <h3 class="text-xl font-bold text-[#0F0F1A] mb-8">
+              Qué sigue después?
+            </h3>
+            <ul class="space-y-6">
+              <li class="flex gap-4">
+                <div
+                  class="w-8 h-8 rounded-full bg-purple-100 text-[#612DAA] flex items-center justify-center font-bold text-sm shrink-0"
+                >
+                  1
+                </div>
+                <div>
+                  <h5 class="font-bold text-sm">Respuesta rápida</h5>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Recibimos tu mensaje y analizamos tu solicitud.
+                  </p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <div
+                  class="w-8 h-8 rounded-full bg-purple-100 text-[#612DAA] flex items-center justify-center font-bold text-sm shrink-0"
+                >
+                  2
+                </div>
+                <div>
+                  <h5 class="font-bold text-sm">Consultoria inicial</h5>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Agendamos una breve reunión para profundizar en los
+                    detalles.
+                  </p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <div
+                  class="w-8 h-8 rounded-full bg-purple-100 text-[#612DAA] flex items-center justify-center font-bold text-sm shrink-0"
+                >
+                  3
+                </div>
+                <div>
+                  <h5 class="font-bold text-sm">Propuesta a medida</h5>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Te enviamos una hoja de ruta con tiempos y costos claros.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
