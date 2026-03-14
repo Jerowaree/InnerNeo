@@ -1,0 +1,6 @@
+[build]
+  command = "pnpm run build"
+  publish = "dist"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "FORMSPREE_ENDPOINT,PUBLIC_TURNSTILE_SITE_KEY"
