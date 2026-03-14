@@ -13,6 +13,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.1",
     "@fontsource/dm-mono": "^5.2.7",
     "@fontsource/kumbh-sans": "^5.2.7",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
