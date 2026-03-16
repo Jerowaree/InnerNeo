@@ -130,6 +130,7 @@ export const ui = {
     'keywords.enterprise': 'Sistemas Empresariales',
     'keywords.software_dev': 'Desarrollo de Software',
     'keywords.saas': 'Software as a Service',
+    'a11y.skipLink': 'Saltar al contenido principal',
   },
   en: {
     'nav.solutions': 'Solutions',
@@ -255,5 +256,6 @@ export const ui = {
     'keywords.enterprise': 'Enterprise Systems',
     'keywords.software_dev': 'Software Development',
     'keywords.saas': 'Software as a Service',
+    'a11y.skipLink': 'Skip to main content',
   },
 } as const;

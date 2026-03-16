@@ -1,8 +1,12 @@
-@import url(https://db.onlinewebfonts.com/c/6cce6b8c74a8ac84c45963dbac1e025a?family=Mont+Regular);
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Mont Regular';
+  src: url('https://db.onlinewebfonts.com/t/6cce6b8c74a8ac84c45963dbac1e025a.woff2') format('woff2');
+  font-display: swap;
+}
 
 :root {
   --bg-primary: #FFFFFF;

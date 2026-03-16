@@ -6,7 +6,7 @@ import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 import KeywordMarquee from "../../../components/KeywordMarquee.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import contactImage from "../../../assets/images/contactus.jpg";
+import contactImage from "../../../assets/images/contactus.avif";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -21,7 +21,7 @@ const t = useTranslations(lang);
   image="/images/contactus.jpg"
 >
   <Navbar />
-  <main class="pt-20">
+  <main id="main-content" class="pt-20">
     <div
       class="h-[400px] relative overflow-hidden flex items-center justify-center"
     >
@@ -110,9 +110,9 @@ const t = useTranslations(lang);
                   1
                 </div>
                 <div>
-                  <h5 class="font-bold text-sm">
+                  <h4 class="font-bold text-sm">
                     {t("contact.next.step1.title")}
-                  </h5>
+                  </h4>
                   <p class="text-xs text-gray-500 mt-1">
                     {t("contact.next.step1.desc")}
                   </p>
@@ -125,9 +125,9 @@ const t = useTranslations(lang);
                   2
                 </div>
                 <div>
-                  <h5 class="font-bold text-sm">
+                  <h4 class="font-bold text-sm">
                     {t("contact.next.step2.title")}
-                  </h5>
+                  </h4>
                   <p class="text-xs text-gray-500 mt-1">
                     {t("contact.next.step2.desc")}
                   </p>
@@ -140,9 +140,9 @@ const t = useTranslations(lang);
                   3
                 </div>
                 <div>
-                  <h5 class="font-bold text-sm">
+                  <h4 class="font-bold text-sm">
                     {t("contact.next.step3.title")}
-                  </h5>
+                  </h4>
                   <p class="text-xs text-gray-500 mt-1">
                     {t("contact.next.step3.desc")}
                   </p>
