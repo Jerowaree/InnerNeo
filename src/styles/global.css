@@ -32,7 +32,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-mont tracking-tight font-bold;
+    @apply font-bold tracking-tight;
+    font-family: 'Kumbh Sans', system-ui, sans-serif;
   }
 }
 

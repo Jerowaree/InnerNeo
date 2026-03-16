@@ -32,12 +32,10 @@ const socialImageURL = new URL(image, Astro.site ?? Astro.url).href;
     <link rel="icon" type="image/jpeg" href="/images/innerneologo.jpeg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Preconnect to external font sources and preload main font for performance -->
-    <link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin />
-    <link rel="preload" href="https://db.onlinewebfonts.com/t/6cce6b8c74a8ac84c45963dbac1e025a.woff2" as="font" type="font/woff2" crossorigin />
-
-    <!-- Preload Turnstile script to avoid preload warnings -->
-    <link rel="preload" href="https://challenges.cloudflare.com/turnstile/v0/api.js" as="script" />
+    <!-- Optimized Google Fonts with preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:ital,wght@0,400;0,700;0,900&display=swap" rel="stylesheet">
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
