@@ -4,6 +4,8 @@ import {
   useTranslations,
   useTranslatedPath,
 } from "../i18n/utils";
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/herosection.jpg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -31,9 +33,12 @@ const translatePath = useTranslatedPath(lang);
       <div
         class="absolute right-0 top-0 h-full w-full lg:w-[50%] transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out pointer-events-none overflow-hidden"
       >
-        <img
-          src="/images/herosection.jpg"
+        <Image
+          src={heroImage}
           alt="IT Solution Team"
+          loading="eager"
+          fetchpriority="high"
+          quality="high"
           class="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-30 md:opacity-72 animate-ken-burns"
         />
       </div>

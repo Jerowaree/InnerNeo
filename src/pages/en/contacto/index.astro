@@ -5,6 +5,8 @@ import Footer from "../../../components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 import KeywordMarquee from "../../../components/KeywordMarquee.astro";
 import Layout from "../../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import contactImage from "../../../assets/images/contactus.jpg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -24,9 +26,11 @@ const t = useTranslations(lang);
       class="h-[400px] relative overflow-hidden flex items-center justify-center"
     >
       <!-- Background Image -->
-      <img
-        src="/images/contactus.jpg"
+      <Image
+        src={contactImage}
         alt="Contact Us"
+        loading="eager"
+        fetchpriority="high"
         class="absolute inset-0 w-full h-full object-cover"
       />
       <!-- Overlay for better contrast -->

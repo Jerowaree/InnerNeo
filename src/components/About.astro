@@ -1,5 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import { Image } from "astro:assets";
+import aboutImage from "../assets/images/about.jpg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -18,8 +20,8 @@ const translatePath = useTranslatedPath(lang);
       <div
         class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
       >
-        <img
-          src="/images/about.jpg"
+        <Image
+          src={aboutImage}
           alt="Equipo Colaborativo"
           class="w-full h-auto grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
         />
@@ -169,8 +171,8 @@ const translatePath = useTranslatedPath(lang);
     const counterObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          let startTimestamp = null;
-          const step = (timestamp) => {
+          let startTimestamp: number | null = null;
+          const step = (timestamp: number) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min(
               (timestamp - startTimestamp) / duration,

@@ -4,6 +4,9 @@ import {
   useTranslations,
   useTranslatedPath,
 } from "../i18n/utils";
+import { Image } from "astro:assets";
+import scarsLogo from "../assets/images/logo_scars.png";
+import nextfitLogo from "../assets/images/nextfit.jpeg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -43,8 +46,8 @@ const translatePath = useTranslatedPath(lang);
           <div
             class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden p-1"
           >
-            <img
-              src="/images/logo_scars.png"
+            <Image
+              src={scarsLogo}
               alt="Scars Logo"
               class="w-full h-full object-contain"
             />
@@ -88,8 +91,8 @@ const translatePath = useTranslatedPath(lang);
           <div
             class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden p-1"
           >
-            <img
-              src="/images/nextfit.jpeg"
+            <Image
+              src={nextfitLogo}
               alt="NextFit Logo"
               class="w-full h-full object-contain"
             />
