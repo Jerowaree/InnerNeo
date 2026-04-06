@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
 const partners = [
   {
     name: "AWS",
@@ -21,6 +23,9 @@ const partners = [
     src: "https://www.vectorlogo.zone/logos/google_ads/google_ads-ar21.svg",
   },
 ];
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="py-16 bg-[#F8FAFF] border-t border-b border-gray-100">
@@ -28,7 +33,7 @@ const partners = [
     <div
       class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.4em] mb-12"
     >
-      Tecnologías que Potencian tus Soluciones
+      {t("logobar.title")}
     </div>
 
     <div class="flex flex-wrap justify-center items-center gap-16 md:gap-24">
