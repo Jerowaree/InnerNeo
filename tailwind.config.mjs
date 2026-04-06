@@ -21,7 +21,7 @@ export default {
         border: 'rgba(124, 58, 237, 0.10)',
       },
       fontFamily: {
-        mont: ['"Kumbh Sans"', 'ui-sans-serif', 'system-ui', ...defaultTheme.fontFamily.sans],
+        mont: ['"Mont Regular"', ...defaultTheme.fontFamily.sans],
         'dm-mono': ['"DM Mono"', 'ui-monospace', 'SFMono-Regular'],
         sans: ['"Kumbh Sans"', 'ui-sans-serif', 'system-ui', ...defaultTheme.fontFamily.sans],
       },
