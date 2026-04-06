@@ -1,6 +1,6 @@
 /* TEAM */
   Creator: InnerNeo Labs
-  Site: https://innerneo.netlify.app
+  Site: https://innerneoficial.com
   Contact: innerneoficial@gmail.com
   Location: Perú
 

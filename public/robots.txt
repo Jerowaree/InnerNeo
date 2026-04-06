@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Host: https://innerneo.netlify.app
-Sitemap: https://innerneo.netlify.app/sitemap-index.xml
+Host: https://innerneoficial.com
+Sitemap: https://innerneoficial.com/sitemap-index.xml

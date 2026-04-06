@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://innerneo.netlify.app',
+  site: 'https://innerneoficial.com',
   output: 'static',
   integrations: [react(), sitemap()],
   i18n: {
