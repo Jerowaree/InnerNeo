@@ -17,7 +17,7 @@ export const ui = {
     'lang.es': 'ES',
     'lang.en': 'EN',
     'hero.title': 'Impulsa tu negocio',
-    'hero.subtitle': 'con soluciones en tecnologia',
+    'hero.subtitle': 'con soluciones en tecnología',
     'hero.description': 'Comprometidos con la entrega de tecnología de vanguardia, priorizamos la investigación y el desarrollo como nuestros principales activos.',
     'hero.explore': 'Explorar Ahora',
     'about.label': 'Sobre Nosotros',
