@@ -1,5 +1,5 @@
 /* TEAM */
-  Creator: InnerNeo Labs
+  Creator: InnerNeo
   Site: https://innerneoficial.com
   Contact: innerneoficial@gmail.com
   Location: Perú
