@@ -5,7 +5,7 @@ import {
   useTranslatedPath,
 } from "../i18n/utils";
 import { Image } from "astro:assets";
-import scarsLogo from "../assets/images/logo_scars.png";
+import masterManagerLogo from "../assets/images/logomm.webp";
 import nextfitLogo from "../assets/images/nextfit.jpeg";
 
 const lang = getLangFromUrl(Astro.url);
@@ -38,7 +38,7 @@ const translatePath = useTranslatedPath(lang);
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 projects-container">
-      <!-- Project 1: Scars -->
+      <!-- Project 1: Master Manager -->
       <article
         class="reveal group bg-[#F8FAFC] border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500"
       >
@@ -47,8 +47,8 @@ const translatePath = useTranslatedPath(lang);
             class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden p-1"
           >
             <Image
-              src={scarsLogo}
-              alt="Scars Logo"
+              src={masterManagerLogo}
+              alt="Master Manager Logo"
               class="w-full h-full object-contain"
             />
           </div>
@@ -62,7 +62,7 @@ const translatePath = useTranslatedPath(lang);
           {t("project1.desc")}
         </p>
         <a
-          href="https://scarsperu.com"
+          href="https://www.mastermanageroficial.com"
           target="_blank"
           class="text-sm font-bold text-[#612DAA] flex items-center gap-2 group/link"
         >
