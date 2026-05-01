@@ -4,7 +4,7 @@ import "@fontsource/kumbh-sans/400.css";
 import "@fontsource/kumbh-sans/700.css";
 import "@fontsource/kumbh-sans/900.css";
 import "../styles/global.css";
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 interface Props {
   title?: string;
@@ -13,15 +13,38 @@ interface Props {
 }
 
 const {
-  title = "InnerNeo — Donde las ideas se convierten en sistemas",
+  title = "Inner Neo - Donde las ideas se convierten en sistemas",
   description = "Agencia de desarrollo e innovación especializada en desarrollo web, desarrollo mobile, software a medida, diseño UX/UI, marketing digital, campañas digitales y soluciones IT escalables.",
   image = "/images/innerneologo.jpeg",
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const socialImageURL = new URL(image, Astro.site ?? Astro.url).href;
+const siteName = "Inner Neo";
+const siteOrigin = Astro.site ?? Astro.url;
+const siteURL = new URL("/", siteOrigin).href;
+const logoURL = new URL("/images/innerneologo.jpeg", siteOrigin).href;
+const spanishURL = new URL(translatePath(Astro.url.pathname, "es"), siteOrigin).href;
+const englishURL = new URL(translatePath(Astro.url.pathname, "en"), siteOrigin).href;
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  alternateName: siteName,
+  url: siteURL,
+  inLanguage: ["es", "en"],
+};
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteName,
+  url: siteURL,
+  logo: logoURL,
+  sameAs: ["https://www.instagram.com/innerneoficial/"],
+};
 ---
 
 <!doctype html>
@@ -43,15 +66,21 @@ const socialImageURL = new URL(image, Astro.site ?? Astro.url).href;
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="es" href={spanishURL} />
+    <link rel="alternate" hreflang="en" href={englishURL} />
+    <link rel="alternate" hreflang="x-default" href={spanishURL} />
     <meta
       name="keywords"
       content="desarrollo de software a medida, desarrollo web, aplicaciones web, desarrollo mobile, diseño UX/UI, ingeniería digital, marketing digital, campañas digitales, innerneo, soluciones it, sistemas escalables, MVP para startups, software factory, consultoría tecnológica, transformación digital"
     />
-    <meta name="author" content="InnerNeo" />
+    <meta name="application-name" content={siteName} />
+    <meta name="apple-mobile-web-app-title" content={siteName} />
+    <meta name="author" content="Inner Neo" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -63,6 +92,8 @@ const socialImageURL = new URL(image, Astro.site ?? Astro.url).href;
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   </head>
   <body
     class="antialiased font-sans bg-[color:var(--bg-base)] text-[color:var(--text-primary)]"
