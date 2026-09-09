@@ -1,252 +1,174 @@
 ---
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from "../i18n/utils";
-import { Image } from "astro:assets";
-import masterManagerLogo from "../assets/images/logomm.webp";
-import nextfitLogo from "../assets/images/nextfit_logo.webp";
+import { getLangFromUrl, useTranslatedPath } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+const isEnglish = lang === "en";
 
-const projects = [
-  {
-    title: t("project1.title"),
-    description: t("project1.desc"),
-    href: "https://www.mastermanageroficial.com",
-    eyebrow: t("project1.eyebrow"),
-    metric: t("project1.metric"),
-    bullets: [
-      t("project1.point1"),
-      t("project1.point2"),
-      t("project1.point3"),
-    ],
-    logo: masterManagerLogo,
-    logoAlt: "Master Manager",
-    cardClass: "lg:col-span-7",
-    visualClass:
-      "from-[#12071E] via-[#251142] to-[#7B2CBF] shadow-[0_24px_60px_rgba(123,44,191,0.24)]",
-    frameClass:
-      "bg-white/6 border-white/10 max-w-[430px] px-8 py-6 sm:px-12 sm:py-8",
-    logoClass: "w-full h-auto object-contain opacity-95",
-    buttonClass:
-      "bg-[#612DAA] text-white hover:bg-[#4F2490] hover:shadow-[0_18px_30px_rgba(97,45,170,0.28)]",
-  },
-  {
-    title: t("project2.title"),
-    description: t("project2.desc"),
-    href: "https://nextfitoficial.com",
-    eyebrow: t("project2.eyebrow"),
-    metric: t("project2.metric"),
-    bullets: [
-      t("project2.point1"),
-      t("project2.point2"),
-      t("project2.point3"),
-    ],
-    logo: nextfitLogo,
-    logoAlt: "NextFit",
-    cardClass: "lg:col-span-5",
-    visualClass:
-      "from-[#040404] via-[#08130B] to-[#0F3E24] shadow-[0_24px_60px_rgba(10,64,32,0.24)]",
-    frameClass:
-      "bg-black/35 border-white/10 max-w-[430px] px-3 py-3 sm:px-4 sm:py-4",
-    logoClass: "w-full h-auto object-contain scale-[1.08]",
-    buttonClass:
-      "bg-[#67F33D] text-[#07110B] hover:bg-[#7DFF56] hover:shadow-[0_18px_30px_rgba(103,243,61,0.22)]",
-  },
-];
+const copy = isEnglish
+  ? {
+      label: "Digital solutions",
+      title: "Your business deserves a better digital experience.",
+      description:
+        "We design and develop websites that make your business easier to understand, trust and choose.",
+      intro: "Built around your goals",
+      cta: "Let's build yours",
+      trust: ["Strategy first", "Made to convert", "Close support"],
+    }
+  : {
+      label: "Soluciones digitales",
+      title: "Tu negocio merece una mejor experiencia digital.",
+      description:
+        "Diseñamos y desarrollamos webs que hacen que tu negocio sea más fácil de entender, confiar y elegir.",
+      intro: "Construidas alrededor de tus objetivos",
+      cta: "Construyamos la tuya",
+      trust: ["Estrategia primero", "Pensadas para convertir", "Acompañamiento cercano"],
+    };
+
+const solutions = isEnglish
+  ? [
+      {
+        number: "01",
+        type: "For growing brands",
+        title: "Corporate website",
+        description: "Turn your online presence into a clear, credible introduction to your business.",
+        bullets: ["Position your brand", "Explain your value", "Be found more easily"],
+        visual: "corporate",
+        image: "/images/corporativa.png",
+        alt: "Corporate website example",
+      },
+      {
+        number: "02",
+        type: "For paid campaigns",
+        title: "Conversion landing page",
+        description: "Give every campaign a focused destination designed to create more conversations.",
+        bullets: ["One clear message", "WhatsApp and forms", "Ready for Meta Ads"],
+        visual: "landing",
+        image: "/images/landing.jpeg",
+        alt: "Landing page example",
+      },
+      {
+        number: "03",
+        type: "For ambitious ideas",
+        title: "Online store or platform",
+        description: "Make it simpler for people to buy, book or interact with your business.",
+        bullets: ["Custom user flows", "Payments and integrations", "Ready to grow"],
+        visual: "platform",
+        image: "/images/ecommerce.png",
+        alt: "Online store example",
+      },
+    ]
+  : [
+      {
+        number: "01",
+        type: "Para marcas en crecimiento",
+        title: "Web corporativa",
+        description: "Convierte tu presencia online en una presentación clara y confiable de tu negocio.",
+        bullets: ["Posiciona tu marca", "Explica tu valor", "Hazte más visible"],
+        visual: "corporate",
+        image: "/images/corporativa.png",
+        alt: "Ejemplo de web corporativa",
+      },
+      {
+        number: "02",
+        type: "Para campañas de publicidad",
+        title: "Landing page que convierte",
+        description: "Dale a cada campaña un destino enfocado en generar más conversaciones.",
+        bullets: ["Un mensaje claro", "WhatsApp y formularios", "Lista para Meta Ads"],
+        visual: "landing",
+        image: "/images/landing.jpeg",
+        alt: "Ejemplo de landing page",
+      },
+      {
+        number: "03",
+        type: "Para ideas ambiciosas",
+        title: "Tienda online o plataforma",
+        description: "Haz más sencillo que las personas compren, reserven o interactúen con tu negocio.",
+        bullets: ["Flujos personalizados", "Pagos e integraciones", "Lista para crecer"],
+        visual: "platform",
+        image: "/images/ecommerce.png",
+        alt: "Ejemplo de tienda online",
+      },
+    ];
 ---
 
-<section class="relative overflow-hidden bg-[#F4F6FB] py-24 sm:py-28" aria-labelledby="projects-title">
-  <div class="pointer-events-none absolute inset-0 overflow-hidden">
-    <div class="absolute left-[-8rem] top-14 h-64 w-64 rounded-full bg-[#612DAA]/10 blur-3xl"></div>
-    <div class="absolute bottom-[-8rem] right-[-4rem] h-72 w-72 rounded-full bg-[#67F33D]/10 blur-3xl"></div>
-  </div>
+<section id="projects" class="relative overflow-hidden bg-white py-24 sm:py-32" aria-labelledby="projects-title">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#0F0F1A]/10"></div>
+  <div class="pointer-events-none absolute -right-24 top-32 h-72 w-72 rounded-full bg-[#612DAA]/8 blur-3xl"></div>
+  <div class="pointer-events-none absolute bottom-0 left-[-8rem] h-80 w-80 rounded-full bg-[#A78BFA]/10 blur-3xl"></div>
 
   <div class="relative mx-auto max-w-7xl px-6">
-    <div class="mb-14 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(340px,0.9fr)] lg:items-end">
-      <div class="max-w-3xl">
-        <div class="mb-5 inline-flex items-center gap-3 rounded-full border border-[#612DAA]/12 bg-white/80 px-4 py-2 shadow-[0_12px_30px_rgba(15,15,26,0.05)] backdrop-blur">
-          <span class="h-2.5 w-2.5 rounded-full bg-[#612DAA]"></span>
-          <span class="text-[11px] font-black uppercase tracking-[0.32em] text-[#612DAA]">{t("projects.label")}</span>
-        </div>
-
-        <h2
-          id="projects-title"
-          class="max-w-4xl text-4xl font-mont font-black leading-[0.94] text-[#0F0F1A] sm:text-5xl lg:text-[4.25rem]"
-        >
-          {t("projects.title").split(" ")[0]}
-          <span class="block text-[#612DAA]">{t("projects.title").split(" ").slice(1).join(" ")}</span>
+    <div class="mb-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-4xl">
+        <p class="reveal mb-6 text-sm font-bold uppercase tracking-[0.28em] text-[#612DAA]">{copy.label}</p>
+        <h2 id="projects-title" class="reveal max-w-4xl text-4xl font-mont font-black leading-[0.98] tracking-tight text-[#0F0F1A] sm:text-6xl lg:text-[5rem]">
+          {isEnglish ? "Your business deserves" : "Tu negocio merece"}
+          <span class="block text-[#612DAA]">{isEnglish ? "a better digital experience." : "una mejor experiencia digital."}</span>
         </h2>
       </div>
 
-      <div class="rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,15,26,0.06)] backdrop-blur">
-        <p class="text-lg leading-relaxed text-[#465065]">
-          {t("projects.description")}
-        </p>
-        <div class="mt-5 flex flex-wrap gap-2">
-          <span class="rounded-full border border-[#612DAA]/12 bg-[#612DAA]/6 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#612DAA]">
-            {t("projects.badge1")}
-          </span>
-          <span class="rounded-full border border-[#0F0F1A]/8 bg-[#0F0F1A]/4 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#0F0F1A]">
-            {t("projects.badge2")}
-          </span>
-          <span class="rounded-full border border-[#0F0F1A]/8 bg-[#0F0F1A]/4 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#0F0F1A]">
-            {t("projects.badge3")}
-          </span>
+      <div class="reveal max-w-md lg:pb-2">
+        <p class="text-lg font-medium leading-relaxed text-[#64748B]">{copy.description}</p>
+        <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-[0.14em] text-[#0F0F1A]">
+          {copy.trust.map((item, index) => (
+            <Fragment>
+              {index > 0 && <span class="h-1 w-1 rounded-full bg-[#612DAA]"></span>}
+              <span>{item}</span>
+            </Fragment>
+          ))}
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
-      {
-        projects.map((project, index) => (
-          <article
-            class:list={[
-              "reveal group relative overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-[0_20px_60px_rgba(15,15,26,0.08)] transition-transform duration-500 hover:-translate-y-1",
-              project.cardClass,
-              index === 1 && "delay-150",
-            ]}
-          >
-            <div class={`relative overflow-hidden rounded-b-[2rem] bg-gradient-to-br ${project.visualClass}`}>
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0))]"></div>
-              <div class="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:30px_30px]"></div>
+    <div class="mb-7 flex items-center gap-4 text-xs font-bold uppercase tracking-[0.25em] text-[#64748B]">
+      <span>{copy.intro}</span>
+      <span class="h-px flex-1 bg-[#0F0F1A]/12"></span>
+    </div>
 
-              <div class="relative z-10 flex min-h-[300px] flex-col justify-between p-6 sm:min-h-[340px] sm:p-8">
-                <div class="flex items-start justify-between gap-4">
-                  <span class="rounded-full border border-white/16 bg-white/12 px-3 py-1 text-[11px] font-black uppercase tracking-[0.32em] text-white">
-                    {project.eyebrow}
-                  </span>
-                  <span class="rounded-full border border-white/16 bg-black/28 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-white">
-                    {project.metric}
-                  </span>
-                </div>
-
-                <div class="relative flex flex-1 items-center justify-center py-8 sm:py-10">
-                  <div class={`project-logo-frame w-full rounded-[1.75rem] border backdrop-blur-sm ${project.frameClass}`}>
-                    <Image
-                      src={project.logo}
-                      alt={project.logoAlt}
-                      class:list={[
-                        "mx-auto block max-h-[180px] w-full drop-shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.04]",
-                        project.logoClass,
-                      ]}
-                    />
-                  </div>
-                </div>
+    <div class="grid gap-5 lg:grid-cols-3">
+      {solutions.map((solution, index) => (
+        <article class:list={["solution-card reveal group overflow-hidden border border-[#0F0F1A]/10 bg-[#F8FAFF] transition-all duration-500 hover:-translate-y-2 hover:border-[#612DAA]/35 hover:shadow-[0_24px_60px_rgba(97,45,170,0.13)]", index === 1 && "delay-150", index === 2 && "delay-300"]}>
+          <div class="solution-preview relative h-56 overflow-hidden border-b border-[#0F0F1A]/10 bg-[#0F0F1A] p-5" data-visual={solution.visual}>
+            <div class="browser-window relative h-full overflow-hidden bg-white shadow-2xl">
+              <div class="flex h-7 items-center gap-1.5 border-b border-[#0F0F1A]/10 bg-[#F8FAFF] px-3">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#0F0F1A]/20"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-[#0F0F1A]/20"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-[#0F0F1A]/20"></span>
+                <span class="ml-2 h-2 w-24 bg-[#0F0F1A]/8"></span>
               </div>
+              <img
+                src={solution.image}
+                alt={solution.alt}
+                loading="lazy"
+                class="h-[calc(100%-1.75rem)] w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
-
-            <div class="p-6 sm:p-8">
-              <div class="mb-4 flex items-center justify-between gap-4">
-                <span class="text-[11px] font-black uppercase tracking-[0.32em] text-[#8A90A2]">
-                  0{index + 1}
-                </span>
-                <div class="h-px flex-1 bg-gradient-to-r from-[#612DAA]/20 to-transparent"></div>
-              </div>
-
-              <h3 class="text-2xl font-black tracking-tight text-[#0F0F1A] sm:text-[2rem]">
-                {project.title}
-              </h3>
-
-              <p class="mt-4 max-w-2xl text-[15px] leading-7 text-[#596277] sm:text-base">
-                {project.description}
-              </p>
-
-              <div class="mt-6 flex flex-wrap gap-2">
-                {project.bullets.map((bullet) => (
-                  <span class="rounded-full border border-[#0F0F1A]/8 bg-[#F6F7FB] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#394252]">
-                    {bullet}
-                  </span>
-                ))}
-              </div>
-
-              <div class="mt-8">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  class={`inline-flex items-center gap-3 rounded-full px-5 py-3 text-sm font-black uppercase tracking-[0.2em] transition-all duration-300 ${project.buttonClass}`}
-                >
-                  {t("project.view")}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="transition-transform duration-300 group-hover:translate-x-1"
-                  >
-                    <path d="M7 17 17 7"></path>
-                    <path d="M7 7h10v10"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-        ))
-      }
-
-      <article class="reveal delay-300 relative overflow-hidden rounded-[2.2rem] border border-[#612DAA]/10 bg-[linear-gradient(135deg,#FFFFFF_0%,#F8F4FF_55%,#EEF8F3_100%)] p-8 text-[#0F0F1A] shadow-[0_24px_70px_rgba(97,45,170,0.12)] lg:col-span-12 lg:p-10">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(97,45,170,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(103,243,61,0.12),transparent_28%)]"></div>
-        <div class="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(97,45,170,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(97,45,170,0.12)_1px,transparent_1px)] [background-size:34px_34px]"></div>
-
-        <div class="relative grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-end">
-          <div class="max-w-3xl">
-            <span class="inline-flex rounded-full border border-[#612DAA]/12 bg-white/80 px-3 py-1 text-[11px] font-black uppercase tracking-[0.32em] text-[#612DAA]">
-              {t("project3.eyebrow")}
-            </span>
-            <h3 class="mt-5 text-3xl font-black tracking-tight text-[#0F0F1A] sm:text-4xl lg:text-[3.2rem]">
-              {t("project3.title")}
-            </h3>
-            <p class="mt-4 max-w-2xl text-base leading-8 text-[#556074] sm:text-lg">
-              {t("project3.desc")}
-            </p>
+            <span class="absolute right-6 top-6 text-xs font-black tracking-[0.2em] text-white/60">{solution.number}</span>
           </div>
 
-          <div class="rounded-[1.8rem] border border-white/80 bg-white/75 p-6 shadow-[0_18px_40px_rgba(15,15,26,0.06)] backdrop-blur-sm">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-[#612DAA]/10 bg-[#612DAA]/6 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#612DAA]">
-                {t("project3.point1")}
-              </span>
-              <span class="rounded-full border border-[#612DAA]/10 bg-[#612DAA]/6 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#612DAA]">
-                {t("project3.point2")}
-              </span>
-              <span class="rounded-full border border-[#612DAA]/10 bg-[#612DAA]/6 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#612DAA]">
-                {t("project3.point3")}
-              </span>
-            </div>
-
-            <a
-              href={translatePath("/contacto")}
-              class="mt-8 inline-flex items-center gap-3 rounded-full bg-[#612DAA] px-5 py-3 text-sm font-black uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-[#4F2490] hover:shadow-[0_18px_30px_rgba(97,45,170,0.28)]"
-            >
-              {t("project.start")}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
+          <div class="p-7 sm:p-8">
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#612DAA]">{solution.type}</p>
+            <h3 class="text-2xl font-black leading-tight tracking-tight text-[#0F0F1A]">{solution.title}</h3>
+            <p class="mt-4 min-h-[5rem] text-[15px] leading-7 text-[#64748B]">{solution.description}</p>
+            <ul class="mt-6 space-y-3 border-t border-[#0F0F1A]/10 pt-5">
+              {solution.bullets.map((bullet) => (
+                <li class="flex items-center gap-3 text-sm font-bold text-[#394252]"><span class="text-lg leading-none text-[#612DAA]">+</span>{bullet}</li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </article>
+        </article>
+      ))}
+    </div>
+
+    <div class="reveal delay-300 mt-12 flex flex-col gap-6 border-t border-[#0F0F1A]/12 pt-8 sm:flex-row sm:items-center sm:justify-between">
+      <p class="max-w-xl text-2xl font-black leading-tight text-[#0F0F1A] sm:text-3xl">{copy.title}</p>
+      <a href={translatePath("/contacto")} class="group inline-flex shrink-0 items-center justify-center gap-3 rounded-lg bg-[#612DAA] px-7 py-4 text-sm font-black uppercase tracking-[0.16em] text-white shadow-lg shadow-[#612DAA]/15 transition-all duration-300 hover:scale-[1.03] hover:bg-[#4F2490]">
+        {copy.cta}
+        <svg class="transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -262,25 +184,35 @@ const projects = [
           }
         });
       },
-      { threshold: 0.12 },
+      { threshold: 0.1 },
     );
 
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
   });
 </script>
 
 <style>
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal.active {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .solution-preview::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(97, 45, 170, 0.1), transparent 55%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .solution-card:hover .solution-preview::after {
+    background: linear-gradient(135deg, rgba(97, 45, 170, 0.28), transparent 65%);
   }
 
   .delay-150 {
@@ -289,11 +221,5 @@ const projects = [
 
   .delay-300 {
     transition-delay: 0.24s;
-  }
-
-  .project-logo-frame {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.12),
-      0 24px 60px rgba(0, 0, 0, 0.25);
   }
 </style>
