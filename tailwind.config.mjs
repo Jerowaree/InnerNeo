@@ -10,23 +10,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-base': '#FFFFFF',
-        'bg-surface': '#F8FAFF',
-        'bg-elevated': '#F3F4F6',
-        accent: '#A78BFA',
-        'accent-deep': '#612DAA',
-        'accent-glow': 'rgba(167, 139, 250, 0.12)',
-        'text-primary': '#0F1724',
-        'text-muted': '#6B7280',
-        border: 'rgba(124, 58, 237, 0.10)',
+        'bg-base': '#FBF7F2',
+        'bg-surface': '#FBF7F2',
+        'bg-elevated': '#FDCB45',
+        accent: '#4D49B9',
+        'accent-deep': '#25245A',
+        'accent-glow': 'rgba(77, 73, 185, 0.12)',
+        'text-primary': '#1C1B2C',
+        'text-muted': '#4D49B9',
+        border: 'rgba(37, 36, 90, 0.10)',
       },
       fontFamily: {
-        mont: ['"Mont Regular"', ...defaultTheme.fontFamily.sans],
+        mont: ['"Poppins"', 'ui-sans-serif', 'system-ui', ...defaultTheme.fontFamily.sans],
         'dm-mono': ['"DM Mono"', 'ui-monospace', 'SFMono-Regular'],
-        sans: ['"Kumbh Sans"', 'ui-sans-serif', 'system-ui', ...defaultTheme.fontFamily.sans],
+        sans: ['"Poppins"', 'ui-sans-serif', 'system-ui', ...defaultTheme.fontFamily.sans],
       },
       boxShadow: {
-        'purple-glow': '0 8px 30px rgba(167,139,250,0.14)',
+        'purple-glow': '0 8px 30px rgba(77,73,185,0.14)',
       },
       keyframes: {
         float: {

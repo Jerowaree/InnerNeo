@@ -12,11 +12,11 @@ export const particlesOptions = {
   fpsLimit: 60,
   particles: {
     number: { value: 45 },
-    color: { value: ['#A78BFA', '#612DAA'] },
+    color: { value: ['#4D49B9', '#25245A'] },
     shape: { type: 'circle' },
     opacity: { value: 0.35 },
     size: { value: { min: 1, max: 4 } },
-    links: { enable: true, color: '#612DAA', opacity: 0.12, distance: 140 },
+    links: { enable: true, color: '#4D49B9', opacity: 0.12, distance: 140 },
     move: { enable: true, speed: 1, random: true, outMode: 'bounce' },
   },
   interactivity: {

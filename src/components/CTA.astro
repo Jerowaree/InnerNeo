@@ -1,6 +1,5 @@
 ---
 import ProjectModal from "./ProjectModal.client";
-import TypewriterTitle from "./TypewriterTitle.client.tsx";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -8,14 +7,14 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<section id="contact" class="py-32 bg-[#612DAA] relative overflow-hidden group">
-  <!-- Animated Background Orbs -->
+<section id="contact" class="py-32 bg-[#25245A] relative overflow-hidden group font-sans">
+  <!-- Subtle brand accents -->
   <div
-    class="absolute top-0 left-0 w-[40rem] h-[40rem] bg-indigo-500/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 animate-pulse-slow"
+    class="absolute top-0 left-0 w-[36rem] h-[36rem] bg-[#4D49B9]/25 rounded-full blur-[110px] -translate-x-1/2 -translate-y-1/2 animate-pulse-slow"
   >
   </div>
   <div
-    class="absolute bottom-0 right-0 w-[50rem] h-[50rem] bg-fuchsia-500/20 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4 animate-pulse-slow"
+    class="absolute bottom-0 right-0 w-[34rem] h-[34rem] bg-[#FDCB45]/15 rounded-full blur-[110px] translate-x-1/4 translate-y-1/4 animate-pulse-slow"
     style="animation-delay: 2s;"
   >
   </div>
@@ -65,20 +64,11 @@ const translatePath = useTranslatedPath(lang);
 
   <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
     <h2
-      class="text-3xl md:text-5xl lg:text-6xl font-mont font-black mb-6 leading-tight"
+      class="cta-title text-3xl md:text-5xl lg:text-6xl font-mont font-medium mb-6 leading-[1.18]"
     >
-      <TypewriterTitle
-        client:load
-        text={t('cta.title1')}
-        className="text-white inline-block"
-      />
+      <span class="cta-title-line text-white inline-block leading-[1.15] pb-1">{t('cta.title1')}</span>
       <br class="hidden md:block" />
-      <TypewriterTitle
-        client:load
-        text={t('cta.title2')}
-        delay={0.6}
-        className="text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] to-white inline-block"
-      />
+      <span class="cta-title-line cta-title-line-accent text-transparent bg-clip-text bg-gradient-to-r from-[#FDCB45] to-[#FBF7F2] inline-block leading-[1.15] pb-1">{t('cta.title2')}</span>
     </h2>
     <p
       class="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
@@ -96,7 +86,7 @@ const translatePath = useTranslatedPath(lang);
         <!-- Actual Button (Now linking to the new page) -->
         <a
           href={translatePath('/contacto')}
-          class="group/btn2 relative px-12 py-5 rounded-xl bg-white border border-transparent hover:bg-transparent hover:border-white text-black hover:text-white font-bold transition-all duration-500 active:scale-95 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
+          class="group/btn2 relative px-12 py-5 rounded-xl bg-[#FDCB45] border border-[#FDCB45] hover:bg-[#4D49B9] hover:border-[#4D49B9] text-[#1C1B2C] hover:text-[#FBF7F2] font-semibold transition-all duration-500 active:scale-95 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
         >
           <!-- Expanding Borders on Hover -->
           <span
@@ -131,6 +121,25 @@ const translatePath = useTranslatedPath(lang);
 </section>
 
 <style>
+  .cta-title-line {
+    animation: ctaTitleReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cta-title-line-accent {
+    animation-delay: 180ms;
+  }
+
+  @keyframes ctaTitleReveal {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @keyframes drawNLine {
     0% {
       stroke-dashoffset: 1;

@@ -25,7 +25,7 @@ export function isolateContent(text: string): string {
   // 3. Add a Security Header for the Admin
   const timestamp = new Date().toISOString();
   return `
---- INNER NEO SECURITY ISOLATION LAYER [${timestamp}] ---
+--- WAIRI SECURITY ISOLATION LAYER [${timestamp}] ---
 ${isolated}
 -------------------------------------------------------
   `.trim();

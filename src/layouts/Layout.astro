@@ -13,9 +13,9 @@ interface Props {
 }
 
 const {
-  title = "Inner Neo - Donde las ideas se convierten en sistemas",
+  title = "Wairi - Donde las ideas se convierten en sistemas",
   description = "Agencia de desarrollo e innovación especializada en desarrollo web, desarrollo mobile, software a medida, diseño UX/UI, marketing digital, campañas digitales y soluciones IT escalables.",
-  image = "/images/innerneologo.jpeg",
+  image = "/images/wairi_logo_primary_transparent.png",
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -23,10 +23,10 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const socialImageURL = new URL(image, Astro.site ?? Astro.url).href;
-const siteName = "Inner Neo";
+const siteName = "Wairi";
 const siteOrigin = Astro.site ?? Astro.url;
 const siteURL = new URL("/", siteOrigin).href;
-const logoURL = new URL("/images/innerneologo.jpeg", siteOrigin).href;
+const logoURL = new URL("/images/wairi_logo_primary_transparent.png", siteOrigin).href;
 const spanishURL = new URL(translatePath(Astro.url.pathname, "es"), siteOrigin).href;
 const englishURL = new URL(translatePath(Astro.url.pathname, "en"), siteOrigin).href;
 const websiteSchema = {
@@ -52,14 +52,14 @@ const organizationSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/jpeg" href="/images/innerneologo.jpeg" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta name="google-site-verification" content="_wSfK6RF81C877rvdtsGwqCaZdFiFZDIbv6PLL9U4ms" />
 
     <!-- Optimized Google Fonts with preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:ital,wght@0,400;0,700;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -71,11 +71,11 @@ const organizationSchema = {
     <link rel="alternate" hreflang="x-default" href={spanishURL} />
     <meta
       name="keywords"
-      content="desarrollo de software a medida, desarrollo web, aplicaciones web, desarrollo mobile, diseño UX/UI, ingeniería digital, marketing digital, campañas digitales, innerneo, soluciones it, sistemas escalables, MVP para startups, software factory, consultoría tecnológica, transformación digital"
+      content="desarrollo de software a medida, desarrollo web, aplicaciones web, desarrollo mobile, diseño UX/UI, ingeniería digital, marketing digital, campañas digitales, wairi, soluciones it, sistemas escalables, MVP para startups, software factory, consultoría tecnológica, transformación digital"
     />
     <meta name="application-name" content={siteName} />
     <meta name="apple-mobile-web-app-title" content={siteName} />
-    <meta name="author" content="Inner Neo" />
+    <meta name="author" content="Wairi" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->

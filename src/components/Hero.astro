@@ -14,17 +14,17 @@ const translatePath = useTranslatedPath(lang);
 
 <section
   id="hero-section"
-  class="relative min-h-[90vh] flex items-center pt-[var(--header-height)] overflow-hidden group"
+  class="relative min-h-[90vh] flex items-center pt-[var(--header-height)] overflow-hidden group font-sans"
 >
   <!-- Dynamic Background with Curve -->
-  <div class="absolute inset-0 bg-[#07070F] z-0">
+  <div class="absolute inset-0 bg-[#1C1B2C] z-0">
     <div class="absolute inset-0 bg-purple-gradient opacity-70"></div>
 
     <!-- Mouse Follow Spotlight (Enhanced Visibility) -->
     <div
       id="mouse-spotlight"
       class="pointer-events-none absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      style="background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(147, 51, 234, 0.45) 0%, rgba(97, 45, 170, 0.15) 35%, transparent 80%);"
+      style="background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(77, 73, 185, 0.28) 0%, rgba(37, 36, 90, 0.12) 35%, transparent 80%);"
     >
     </div>
 
@@ -46,7 +46,7 @@ const translatePath = useTranslatedPath(lang);
 
     <!-- Deep Pulse Aura (Purple Part) -->
     <div
-      class="absolute top-[20%] left-[-10%] w-[60rem] h-[60rem] bg-[#612DAA]/15 rounded-full blur-[150px] animate-pulse-slow"
+      class="absolute top-[20%] left-[-10%] w-[60rem] h-[60rem] bg-[#25245A]/15 rounded-full blur-[150px] animate-pulse-slow"
     >
     </div>
 
@@ -61,11 +61,11 @@ const translatePath = useTranslatedPath(lang);
 
     <!-- Floating Particles/Glows -->
     <div
-      class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#612DAA]/30 rounded-full blur-[120px] animate-pulse-slow font-delay-200"
+      class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4D49B9]/30 rounded-full blur-[120px] animate-pulse-slow font-delay-200"
     >
     </div>
     <div
-      class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] animate-pulse-slow font-delay-2000"
+      class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#FDCB45]/10 rounded-full blur-[100px] animate-pulse-slow font-delay-2000"
     >
     </div>
   </div>
@@ -76,7 +76,7 @@ const translatePath = useTranslatedPath(lang);
   >
     <div class="space-y-8 pt-5">
       <h1
-        class="text-5xl md:text-7xl font-mont font-black text-white leading-tight animate-fade-in-up font-delay-200"
+        class="text-5xl md:text-7xl font-mont font-medium text-white leading-tight animate-fade-in-up font-delay-200"
       >
         {t("hero.title")}
         <br />
@@ -94,13 +94,13 @@ const translatePath = useTranslatedPath(lang);
       <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up font-delay-600">
         <a
           href={translatePath("/#services")}
-          class="px-8 py-4 bg-white text-[#000000] font-medium rounded-xl shadow-2xl hover:bg-gray-50 transition-all active:scale-95 hover:scale-105"
+          class="px-8 py-4 bg-[#FDCB45] text-[#1C1B2C] font-semibold rounded-sm shadow-2xl hover:bg-[#4D49B9] hover:text-[#FBF7F2] transition-all active:scale-95 hover:scale-105"
         >
           {t("hero.explore")}
         </a>
         <a
           href={translatePath("/contacto")}
-          class="px-8 py-4 bg-[#612DAA] border-2 border-[#612DAA] text-white font-medium rounded-xl hover:bg-[#6D28D9] hover:border-[#6D28D9] transition-all active:scale-95 flex items-center gap-2 hover:scale-105 shadow-[0_10px_40px_rgba(124,58,237,0.4)]"
+          class="px-8 py-4 bg-[#3F3B9E] border-2 border-[#3F3B9E] text-white font-semibold rounded-md hover:bg-[#25245A] hover:border-[#25245A] transition-all active:scale-95 flex items-center gap-2 hover:scale-105 shadow-[0_10px_40px_rgba(63,59,158,0.3)]"
         >
           {t("nav.contact")}
         </a>
