@@ -123,6 +123,19 @@ const professionalServiceSchema = {
       {t('a11y.skipLink')}
     </a>
     <slot />
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/51955730233?text=Hola%2C%20deseo%20una%20web%20para%20mi%20negocio"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-float"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" width="32" height="32" fill="white" aria-hidden="true">
+        <path d="M16 2A13 13 0 0 0 4.6 21.2L3 29l8-2.1A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.5A11 11 0 1 1 16 26zm6-8.2c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.7l.5-.6c.1-.2.2-.3.3-.5a.4.4 0 0 0 0-.4c-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.5 6.5 0 0 0 1.4 3.5c.2.2 2.5 3.8 6 5.3a13.7 13.7 0 0 0 2 .7 4.8 4.8 0 0 0 2.2.1 3.6 3.6 0 0 0 2.4-1.7 3 3 0 0 0 .2-1.7c-.1-.2-.4-.3-.7-.5z"/>
+      </svg>
+    </a>
     
     <!-- Easter Egg for Developers -->
     <script>
@@ -137,5 +150,41 @@ const professionalServiceSchema = {
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background-color: #25d366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    text-decoration: none;
+  }
+  .whatsapp-float:hover,
+  .whatsapp-float:focus-visible {
+    transform: scale(1.1) translateY(-2px);
+    background-color: #20ba5a;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.55);
+  }
+  @media (max-width: 760px) {
+    .whatsapp-float {
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+    }
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+    }
   }
 </style>
