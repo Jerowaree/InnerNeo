@@ -13,9 +13,9 @@ interface Props {
 }
 
 const {
-  title = "Wairi - Donde las ideas se convierten en sistemas",
+  title = "Wairi - Construyendo el siguiente paso",
   description = "Agencia de desarrollo e innovación especializada en desarrollo web, desarrollo mobile, software a medida, diseño UX/UI, marketing digital, campañas digitales y soluciones IT escalables.",
-  image = "/images/wairi_logo_primary_transparent.png",
+  image = "/images/opengraphwairi.png",
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -102,6 +102,10 @@ const professionalServiceSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="Wairi — Ideas digitales. Negocios reales." />
+    <meta property="og:locale" content="es_PE" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -126,7 +130,7 @@ const professionalServiceSchema = {
 
     <!-- WhatsApp Floating Button -->
     <a
-      href="https://wa.me/51955730223?text=Hola%2C%20deseo%20una%20web%20para%20mi%20negocio"
+      href="https://wa.me/51955730223?text=👋%20¡Hola!%20Me%20interesa%20trabajar%20con%20Wairi%20🚀%0A%0AEstoy%20buscando%20ayuda%20para%20llevar%20mi%20negocio%20al%20siguiente%20nivel%20digitalmente.%20¿Podemos%20hablar%3F"
       target="_blank"
       rel="noopener noreferrer"
       class="whatsapp-float"
