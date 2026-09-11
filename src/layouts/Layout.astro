@@ -45,6 +45,23 @@ const organizationSchema = {
   logo: logoURL,
   sameAs: ["https://www.instagram.com/innerneoficial/"],
 };
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteName,
+  url: siteURL,
+  image: socialImageURL,
+  logo: logoURL,
+  email: "innerneoficial@gmail.com",
+  telephone: "+51955730233",
+  description: description,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "PE"
+  },
+  sameAs: ["https://www.instagram.com/innerneoficial/"]
+};
 ---
 
 <!doctype html>
@@ -94,6 +111,7 @@ const organizationSchema = {
     <meta property="twitter:image" content={socialImageURL} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(professionalServiceSchema)} />
   </head>
   <body
     class="antialiased font-sans bg-[color:var(--bg-base)] text-[color:var(--text-primary)]"
